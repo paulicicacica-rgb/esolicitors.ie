@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Injury Claims Ireland — Know Your Rights | eSolicitors.ie</title>
+<meta name="description" content="Injured in Ireland? Find out if you have a personal injury claim. Free solicitor matching, all 26 counties. Strict 2-year deadline applies — act now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0c1f3d;
+    --navy-mid: #162d52;
+    --navy-light: #1e3a6a;
+    --gold: #c8922a;
+    --gold-light: #e8b04a;
+    --cream: #f7f3ee;
+    --cream-dark: #ede7dc;
+    --red: #c0392b;
+    --red-bg: #fdf2f0;
+    --green: #1a7a4a;
+    --green-bg: #f0faf5;
+    --white: #ffffff;
+    --text-dark: #0c1f3d;
+    --text-mid: #4a5568;
+    --text-light: #8896a8;
+    --border: #e8e2d9;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(200,146,42,0.25);
+    padding: 0 5%;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: var(--navy-mid);
+    padding: 10px 5%;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold-light); }
+  .breadcrumb span { margin: 0 6px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 56px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(200,146,42,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(192,57,43,0.2);
+    border: 1px solid rgba(192,57,43,0.5);
+    color: #ff8a7a;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 28px;
+    max-width: 560px;
+  }
+
+  .hero-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .hero-bullets li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* HERO QUICK FORM */
+  .hero-form {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.3);
+  }
+
+  .hero-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .hero-form-sub {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-bottom: 18px;
+  }
+
+  .form-field {
+    margin-bottom: 12px;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+  }
+
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    background: #fafafa;
+    appearance: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: var(--white);
+  }
+
+  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .btn-submit:hover { background: var(--navy-light); }
+
+  .form-note {
+    font-size: 0.68rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 9px;
+  }
+
+  /* ── PAGE CONTENT ── */
+  .page-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px 0; }
+  .section-sm { padding: 48px 0; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .section-body {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 720px;
+  }
+
+  .section-body strong { color: var(--text-dark); font-weight: 600; }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: var(--red-bg);
+    border: 1.5px solid rgba(192,57,43,0.25);
+    border-left: 5px solid var(--red);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin: 40px 0;
+  }
+
+  .warning-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .warning-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .warning-body {
+    font-size: 0.9rem;
+    color: #7a2020;
+    line-height: 1.7;
+  }
+
+  .warning-body strong { color: var(--red); }
+
+  /* ── SCENARIO GRID ── */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .scenario-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scenario-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+
+  .scenario-card:hover {
+    border-color: rgba(200,146,42,0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(12,31,61,0.08);
+  }
+
+  .scenario-card:hover::after { transform: scaleX(1); }
+
+  .scenario-icon { font-size: 1.6rem; }
+
+  .scenario-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .scenario-arrow {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  /* ── SCAN BOX ── */
+  .scan-box {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-box::before {
+    content: '⚖';
+    position: absolute;
+    right: -20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 180px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  .scan-box-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .scan-box-sub {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  .scan-box-cta {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+    flex-shrink: 0;
+  }
+
+  .scan-box-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── CONTENT COLUMNS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ── PROCESS STEPS ── */
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .process-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .process-text strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .process-text p {
+    font-size: 0.84rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── VALUE RANGES ── */
+  .value-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    font-size: 0.88rem;
+  }
+
+  .value-table th {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .value-table th:first-child { border-radius: 8px 0 0 0; }
+  .value-table th:last-child { border-radius: 0 8px 0 0; }
+
+  .value-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-mid);
+    background: var(--white);
+  }
+
+  .value-table tr:last-child td { border-bottom: none; }
+  .value-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+  .value-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+  .value-table .amount {
+    font-weight: 700;
+    color: var(--green);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .table-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ── STORIES ── */
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .story-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-card:hover {
+    border-color: rgba(200,146,42,0.4);
+    box-shadow: 0 8px 28px rgba(12,31,61,0.08);
+  }
+
+  .story-tag {
+    display: inline-block;
+    background: rgba(200,146,42,0.1);
+    color: var(--gold);
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .story-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 10px;
+    flex: 1;
+  }
+
+  .story-excerpt {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .story-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+  }
+
+  .story-person { color: var(--text-mid); font-weight: 600; }
+  .story-result { color: var(--green); font-weight: 700; }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--white); padding: 64px 0; }
+
+  .faq-list {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: left;
+    transition: color 0.2s;
+  }
+
+  .faq-q:hover { color: var(--gold); }
+
+  .faq-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.3s;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .faq-item.open .faq-icon {
+    background: var(--gold);
+    color: var(--white);
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-bottom: 18px;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    background: var(--navy);
+    padding: 72px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta::before {
+    content: '⚖';
+    position: absolute;
+    font-size: 500px;
+    opacity: 0.025;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .bottom-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bottom-cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 32px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    padding: 15px 38px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ── RELATED AREAS ── */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .related-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .related-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  .related-icon { font-size: 1.4rem; }
+
+  .related-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f1e;
+    padding: 44px 5% 24px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.65;
+    max-width: 260px;
+    margin-top: 10px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-links h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 7px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 18px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-badge { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.15s; }
+  .hero-intro { animation-delay: 0.25s; }
+  .hero-bullets { animation-delay: 0.3s; }
+  .hero-form { animation: fadeUp 0.6s 0.2s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .scenario-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; gap: 36px; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .scan-box { grid-template-columns: 1fr; text-align: center; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .scenario-grid { grid-template-columns: 1fr; }
+    .form-grid-2 { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .warning-box { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long do I have to make a personal injury claim in Ireland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Ireland, you generally have 2 years from the date of the injury to make a personal injury claim. This is called the Statute of Limitations. If you miss this deadline, your claim is permanently barred — even if your case would have been strong. For children, the 2-year period starts when they turn 18."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a solicitor for a personal injury claim in Ireland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You are not legally required to have a solicitor, but it is strongly recommended. Personal injury law in Ireland is complex, insurance companies have experienced legal teams working against you, and a solicitor will almost always secure a significantly higher settlement than you would on your own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is no win no fee in Ireland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No win no fee means your solicitor only gets paid if your case is successful. If you lose, you pay no legal fees to your solicitor. Most personal injury solicitors in Ireland operate on this basis, which means there is no financial risk to bringing a claim."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a personal injury claim take in Ireland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most personal injury claims in Ireland are resolved within 1 to 3 years. Straightforward claims — like a slip and fall where liability is clear — can settle in 6 to 12 months. More complex cases involving serious injuries or disputed liability take longer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I have to go to court for a personal injury claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The majority of personal injury claims in Ireland settle before going to court. Your solicitor will negotiate with the other party's insurer, and most cases reach a settlement without a court hearing. If no fair settlement is reached, your solicitor will advise you on whether to proceed to court."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">e<span>Solicitors</span>.ie</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/personal-injury/">Personal Injury</a></li>
+      <li><a href="/property-law/">Property</a></li>
+      <li><a href="/employment-law/">Employment</a></li>
+      <li><a href="/family-law/">Family Law</a></li>
+    </ul>
+    <a href="/chat.html" class="nav-links nav-cta" style="text-decoration:none; padding:8px 18px; background:var(--gold); color:var(--navy); border-radius:6px; font-weight:600; font-size:0.85rem;">Find a Solicitor →</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a>
+  <span>›</span>
+  <span style="color:rgba(255,255,255,0.7)">Personal Injury Claims Ireland</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">⚠ Strict time limits apply — 2 year deadline</div>
+      <h1>Personal Injury<br>Claims in Ireland.<br><em>Know Your Rights.</em></h1>
+      <p class="hero-intro">
+        If you were injured in an accident that wasn't your fault — on the road, at work, in a shop, or anywhere else — you may be entitled to compensation. Most people don't know their rights. Most don't know they have a case. This page explains what you need to know.
+      </p>
+      <ul class="hero-bullets">
+        <li>No win, no fee — you pay nothing unless you win</li>
+        <li>Free initial consultation with a specialist solicitor</li>
+        <li>Matched to your county within 24 hours</li>
+        <li>2-year deadline — the sooner you act, the better</li>
+      </ul>
+    </div>
+    <div class="hero-form">
+      <div class="hero-form-title">Is your claim valid?</div>
+      <p class="hero-form-sub">Tell us briefly what happened — free, no obligation.</p>
+      <div class="form-field">
+        <label>Your Name</label>
+        <input type="text" placeholder="e.g. John Murphy">
+      </div>
+      <div class="form-grid-2">
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="tel" placeholder="08x xxx xxxx">
+        </div>
+        <div class="form-field">
+          <label>County</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Dublin</option><option>Cork</option><option>Galway</option>
+            <option>Limerick</option><option>Waterford</option><option>Kerry</option>
+            <option>Wexford</option><option>Wicklow</option><option>Kildare</option>
+            <option>Meath</option><option>Louth</option><option>Tipperary</option>
+            <option>Clare</option><option>Kilkenny</option><option>Westmeath</option>
+            <option>Donegal</option><option>Mayo</option><option>Sligo</option>
+            <option>Roscommon</option><option>Cavan</option><option>Monaghan</option>
+            <option>Offaly</option><option>Laois</option><option>Carlow</option>
+            <option>Longford</option><option>Leitrim</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-submit" onclick="window.location='/chat.html'">Get Free Assessment →</button>
+      <p class="form-note">🔒 Confidential. Free. No obligation to proceed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="page-content">
+
+  <!-- WHAT IS PERSONAL INJURY -->
+  <section class="section">
+    <div class="section-label">What counts</div>
+    <h2 class="section-title">What is a personal injury claim?</h2>
+    <p class="section-body">
+      A personal injury claim is a legal action you can take when you are hurt because of someone else's negligence — their failure to take reasonable care. In Ireland, this covers a wide range of situations: road traffic accidents, workplace injuries, slips and falls on poorly maintained premises, dog bites, medical negligence, and more.
+      <br><br>
+      <strong>You don't need to prove intent.</strong> You only need to show that the other party had a duty of care towards you, that they breached that duty, and that you suffered an injury as a result. In most cases, your solicitor handles all of this.
+    </p>
+
+    <!-- WARNING BOX -->
+    <div class="warning-box">
+      <div class="warning-icon">⏱</div>
+      <div>
+        <div class="warning-title">The 2-Year Deadline Is Absolute</div>
+        <p class="warning-body">
+          In Ireland, the Statute of Limitations gives you <strong>2 years from the date of your injury</strong> to bring a personal injury claim. This is not a guideline — it is a hard legal cutoff. Miss it by one day and your case is gone permanently, regardless of how strong it was. The clock starts the moment the injury happens. <strong>Don't wait.</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- SCENARIO GRID -->
+    <div class="section-label" style="margin-top:40px;">Common situations</div>
+    <h2 class="section-title" style="margin-bottom:8px;">What type of injury happened to you?</h2>
+    <p class="section-body">Select your situation to find out exactly where you stand.</p>
+
+    <div class="scenario-grid">
+      <a href="/personal-injury/dog-bite/" class="scenario-card">
+        <div class="scenario-icon">🐕</div>
+        <div class="scenario-title">Bitten or attacked by a dog</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/car-accident/" class="scenario-card">
+        <div class="scenario-icon">🚗</div>
+        <div class="scenario-title">Car or road traffic accident</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/slip-fall/" class="scenario-card">
+        <div class="scenario-icon">⚠️</div>
+        <div class="scenario-title">Slipped or fell in a shop or public place</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/workplace-injury/" class="scenario-card">
+        <div class="scenario-icon">🦺</div>
+        <div class="scenario-title">Injured at work or on a job site</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/medical-negligence/" class="scenario-card">
+        <div class="scenario-icon">🏥</div>
+        <div class="scenario-title">Medical negligence or hospital error</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/public-liability/" class="scenario-card">
+        <div class="scenario-icon">🏢</div>
+        <div class="scenario-title">Injured on someone else's property</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/cycling-accident/" class="scenario-card">
+        <div class="scenario-icon">🚴</div>
+        <div class="scenario-title">Cycling accident or pedestrian knocked down</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/assault/" class="scenario-card">
+        <div class="scenario-icon">🆘</div>
+        <div class="scenario-title">Victim of an assault</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/pothole/" class="scenario-card">
+        <div class="scenario-icon">🛣️</div>
+        <div class="scenario-title">Pothole or road defect injury</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/sports-injury/" class="scenario-card">
+        <div class="scenario-icon">⚽</div>
+        <div class="scenario-title">Sports injury due to negligence</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/defective-product/" class="scenario-card">
+        <div class="scenario-icon">📦</div>
+        <div class="scenario-title">Injury from a defective product</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+      <a href="/personal-injury/holiday-accident/" class="scenario-card">
+        <div class="scenario-icon">✈️</div>
+        <div class="scenario-title">Holiday or travel accident</div>
+        <div class="scenario-arrow">Find out more →</div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- SCAN BOX 1 -->
+<div style="background: var(--cream-dark); padding: 0 5%;">
+  <div style="max-width:1100px; margin:0 auto; padding: 48px 0;">
+    <div class="scan-box">
+      <div>
+        <div class="scan-box-title">Not sure if you have a case?</div>
+        <p class="scan-box-sub">Describe what happened to you in plain language. Our AI will tell you whether it sounds like a valid claim, show you similar cases from across Ireland, and match you with the right solicitor in your county — free.</p>
+      </div>
+      <a href="/chat.html" class="scan-box-cta">Tell Us Your Story →</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-content">
+
+  <!-- HOW IT WORKS + CLAIM VALUES -->
+  <section class="section">
+    <div class="two-col">
+      <div>
+        <div class="section-label">The Process</div>
+        <h2 class="section-title">What happens when you make a claim</h2>
+        <p class="section-body" style="margin-bottom:24px;">Most people imagine courts, stress, and years of waiting. The reality is far simpler. Here is what actually happens when you bring a personal injury claim in Ireland.</p>
+
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <div class="process-text">
+              <strong>Free consultation with your solicitor</strong>
+              <p>You explain what happened. The solicitor assesses whether you have a viable claim. This costs you nothing.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <div class="process-text">
+              <strong>PIAB application</strong>
+              <p>Most claims go through the Personal Injuries Assessment Board first. Your solicitor handles the paperwork and medical evidence.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <div class="process-text">
+              <strong>Settlement negotiations</strong>
+              <p>The other party's insurer makes an offer. Your solicitor negotiates hard on your behalf. Most cases settle here.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">4</div>
+            <div class="process-text">
+              <strong>You receive compensation</strong>
+              <p>Once agreed, funds are paid directly to you. Your solicitor's fee comes from the settlement — not your pocket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">Compensation</div>
+        <h2 class="section-title">What could my claim be worth?</h2>
+        <p class="section-body" style="margin-bottom:0;">Every case is different. Compensation depends on the severity of your injury, recovery time, financial losses, and impact on your daily life. These are typical Irish settlement ranges.</p>
+
+        <table class="value-table">
+          <thead>
+            <tr>
+              <th>Injury Type</th>
+              <th>Typical Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Minor soft tissue injury</td>
+              <td class="amount">€5,000 – €15,000</td>
+            </tr>
+            <tr>
+              <td>Dog bite (moderate)</td>
+              <td class="amount">€10,000 – €25,000</td>
+            </tr>
+            <tr>
+              <td>Broken bone (simple)</td>
+              <td class="amount">€15,000 – €40,000</td>
+            </tr>
+            <tr>
+              <td>Workplace injury</td>
+              <td class="amount">€20,000 – €80,000</td>
+            </tr>
+            <tr>
+              <td>Serious / life-changing</td>
+              <td class="amount">€100,000+</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">* These are indicative ranges only. Your solicitor will assess the specific value of your case at consultation.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- STORIES -->
+<div style="background: var(--cream); padding: 0 5%;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <section class="section">
+      <div class="section-label">Real Situations</div>
+      <h2 class="section-title">What happened to people just like you</h2>
+      <p class="section-body">These are real situations people across Ireland have faced. In every case, they weren't sure they had a claim. In every case, they did.</p>
+
+      <div class="stories-grid">
+        <a href="/stories/amazon-driver-dog-bite/" class="story-card">
+          <span class="story-tag">Dog Bite</span>
+          <div class="story-title">"I got bitten delivering a parcel in Cork. I nearly didn't bother calling a solicitor."</div>
+          <p class="story-excerpt">Damien had been doing delivery routes for two years when it happened. A gate that should have been latched wasn't. He assumed it was just one of those things.</p>
+          <div class="story-footer">
+            <span class="story-person">Damien, Cork</span>
+            <span class="story-result">✓ Settled €18,500</span>
+          </div>
+        </a>
+        <a href="/stories/lidl-slip-fall/" class="story-card">
+          <span class="story-tag">Slip & Fall</span>
+          <div class="story-title">"I slipped on a wet floor in Lidl. No warning sign. I fractured my wrist."</div>
+          <p class="story-excerpt">Siobhan was doing her weekly shop when she went down on a freshly mopped floor. No cone, no sign. The staff were apologetic but the company was not.</p>
+          <div class="story-footer">
+            <span class="story-person">Siobhan, Dublin</span>
+            <span class="story-result">✓ Settled €14,200</span>
+          </div>
+        </a>
+        <a href="/stories/construction-site-injury/" class="story-card">
+          <span class="story-tag">Work Injury</span>
+          <div class="story-title">"My employer didn't provide the right safety equipment. I fell from scaffolding."</div>
+          <p class="story-excerpt">Piotr had been working construction in Limerick for three years. The scaffolding wasn't properly secured. His employer blamed him. His solicitor proved otherwise.</p>
+          <div class="story-footer">
+            <span class="story-person">Piotr, Limerick</span>
+            <span class="story-result">✓ Claim successful</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- SCAN BOX 2 -->
+<div style="background: var(--cream-dark); padding: 0 5%;">
+  <div style="max-width:1100px; margin:0 auto; padding: 48px 0;">
+    <div class="scan-box">
+      <div>
+        <div class="scan-box-title">Don't leave it any longer.</div>
+        <p class="scan-box-sub">Every day you wait is a day closer to that 2-year deadline. Talk to a solicitor now — free, no obligation, matched to your county in 24 hours.</p>
+      </div>
+      <a href="/chat.html" class="scan-box-cta">Get Free Advice Now →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="page-content">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">Personal injury claims — answered plainly</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long do I have to make a personal injury claim in Ireland?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">In Ireland, you generally have <strong>2 years from the date of your injury</strong> to make a personal injury claim. This is the Statute of Limitations. Miss this deadline and your claim is permanently barred — no exceptions. For children, the 2-year period starts from their 18th birthday.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need a solicitor for a personal injury claim in Ireland?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">You are not legally required to have a solicitor, but it is strongly recommended. Insurance companies have experienced legal teams working against you. A solicitor understands the system, knows what your claim is worth, and will negotiate a significantly higher settlement than most people achieve on their own.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is no win no fee — and does it really mean I pay nothing?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">No win no fee means your solicitor only charges a fee if your case is won or settled successfully. If you lose, you pay no solicitor fees. This removes the financial risk of bringing a claim. Most personal injury solicitors in Ireland operate on this basis. Always confirm the terms with your solicitor before proceeding.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does a personal injury claim take in Ireland?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Most personal injury claims in Ireland resolve within 1 to 3 years. Straightforward cases with clear liability can settle in 6 to 12 months. More complex cases — serious injuries, disputed liability, or medical negligence — take longer. Your solicitor will give you a realistic timeline at your first consultation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will I have to go to court?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">The vast majority of personal injury claims in Ireland settle before reaching court. Your solicitor will negotiate with the opposing insurer, and most cases reach a satisfactory settlement without a hearing. If no fair offer is made, your solicitor will advise whether going to court is the right step.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED AREAS -->
+<div style="background: var(--cream); padding: 0 5%;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <section class="section-sm">
+      <div class="section-label">Other Practice Areas</div>
+      <h2 class="section-title">Need help with something else?</h2>
+      <div class="related-grid">
+        <a href="/employment-law/" class="related-card">
+          <span class="related-icon">💼</span>
+          <span class="related-name">Employment Law</span>
+        </a>
+        <a href="/property-law/" class="related-card">
+          <span class="related-icon">🏠</span>
+          <span class="related-name">Property Law</span>
+        </a>
+        <a href="/family-law/" class="related-card">
+          <span class="related-icon">👨‍👩‍👧</span>
+          <span class="related-name">Family Law</span>
+        </a>
+        <a href="/immigration-law/" class="related-card">
+          <span class="related-icon">🛂</span>
+          <span class="related-name">Immigration Law</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2 class="bottom-cta-title">You may have a case.<br>Find out for free.</h2>
+  <p class="bottom-cta-sub">Matched to a specialist solicitor in your county. No fees. No obligation. Within 24 hours.</p>
+  <a href="/chat.html" class="btn-gold">Tell Us What Happened →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">e<span style="color:var(--gold)">Solicitors</span>.ie</a>
+        <p>Ireland's free solicitor matching service. We connect people with qualified solicitors across all 26 counties — at no cost to you.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Personal Injury</h4>
+        <ul>
+          <li><a href="/personal-injury/dog-bite/">Dog Bite Claims</a></li>
+          <li><a href="/personal-injury/car-accident/">Car Accidents</a></li>
+          <li><a href="/personal-injury/slip-fall/">Slip & Fall</a></li>
+          <li><a href="/personal-injury/workplace-injury/">Work Injuries</a></li>
+          <li><a href="/personal-injury/medical-negligence/">Medical Negligence</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="/employment-law/">Employment Law</a></li>
+          <li><a href="/property-law/">Property Law</a></li>
+          <li><a href="/family-law/">Family Law</a></li>
+          <li><a href="/immigration-law/">Immigration</a></li>
+          <li><a href="/wills-probate/">Wills & Probate</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>eSolicitors</h4>
+        <ul>
+          <li><a href="/stories/">Real Stories</a></li>
+          <li><a href="/for-solicitors/">For Solicitors</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 eSolicitors.ie — All rights reserved.</span>
+      <span style="max-width:500px;">eSolicitors.ie is a referral service, not a law firm. We do not provide legal advice. Always consult a qualified solicitor for your specific situation.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
