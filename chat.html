@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSolicitors.ie — Tell Us Your Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0c1f3d;
+    --navy-mid: #162d52;
+    --navy-light: #1e3a6a;
+    --gold: #c8922a;
+    --gold-light: #e8b04a;
+    --cream: #f7f3ee;
+    --cream-dark: #ede7dc;
+    --red: #c0392b;
+    --green: #1a7a4a;
+    --white: #ffffff;
+    --text-dark: #0c1f3d;
+    --text-mid: #4a5568;
+    --text-light: #8896a8;
+    --border: #e8e2d9;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    background: var(--navy);
+    padding: 0 5%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--gold); }
+  .nav-tag { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+
+  .main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 40px 5%;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .intro { position: sticky; top: 40px; }
+
+  .intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(200,146,42,0.12);
+    border: 1px solid rgba(200,146,42,0.35);
+    color: var(--gold);
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+
+  .intro h1 em { font-style: italic; color: var(--gold); }
+
+  .intro p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 460px;
+  }
+
+  .how-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+
+  .how-step { display: flex; align-items: flex-start; gap: 14px; }
+
+  .step-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .how-step-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .how-step-text span { font-size: 0.8rem; color: var(--text-light); }
+
+  .trust-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 100px;
+  }
+
+  /* CHAT */
+  .chat-panel {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(12,31,61,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .chat-header {
+    background: var(--navy);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .chat-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .chat-header-text strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--white); }
+  .chat-header-text span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+  .online-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    margin-left: auto;
+    box-shadow: 0 0 6px rgba(74,222,128,0.6);
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .chat-messages {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    height: 480px;
+    scroll-behavior: smooth;
+  }
+
+  .msg { display: flex; gap: 10px; animation: msgIn 0.3s ease both; }
+  .msg.user { flex-direction: row-reverse; }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .msg.user .msg-avatar { background: var(--navy); color: var(--white); font-size: 0.7rem; }
+
+  .msg-bubble {
+    max-width: 82%;
+    padding: 12px 15px;
+    border-radius: 14px;
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .msg.ai .msg-bubble {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-top-left-radius: 4px;
+    color: var(--text-dark);
+  }
+
+  .msg.user .msg-bubble {
+    background: var(--navy);
+    color: var(--white);
+    border-top-right-radius: 4px;
+  }
+
+  /* SIMILAR CASES */
+  .similar-cases { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+
+  .similar-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 13px;
+  }
+
+  .case-name { font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .case-desc { font-size: 0.77rem; color: var(--text-mid); line-height: 1.55; }
+  .case-outcome { font-size: 0.72rem; color: var(--green); font-weight: 600; margin-top: 4px; }
+
+  /* SOLICITOR CARD */
+  .solicitor-card {
+    margin-top: 14px;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(200,146,42,0.12);
+  }
+
+  .sol-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .sol-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+  .sol-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .sol-name { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+  .sol-firm { font-size: 0.78rem; color: var(--text-light); margin-top: 1px; }
+  .sol-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 6px; }
+
+  .sol-review {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    font-style: italic;
+    line-height: 1.55;
+    padding: 8px 10px;
+    background: var(--cream);
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .sol-review-author { font-size: 0.7rem; color: var(--text-light); font-style: normal; font-weight: 600; margin-top: 4px; }
+
+  .sol-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .sol-btn {
+    padding: 10px;
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .sol-btn-primary { background: var(--navy); color: var(--white); }
+  .sol-btn-primary:hover { background: var(--navy-light); }
+  .sol-btn-secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+  .sol-btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* TYPING */
+  .typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 12px 15px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    border-top-left-radius: 4px;
+  }
+
+  .typing-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--text-light);
+    animation: typingBounce 1.2s infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typingBounce {
+    0%,60%,100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+
+  /* INPUT */
+  .chat-input-area {
+    border-top: 1px solid var(--border);
+    padding: 14px 16px;
+    background: var(--white);
+    flex-shrink: 0;
+  }
+
+  .county-row { display: none; margin-bottom: 10px; }
+  .county-row.visible { display: block; }
+
+  .county-row label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .county-row select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    background: var(--cream);
+    appearance: none;
+  }
+
+  .county-row select:focus { outline: none; border-color: var(--gold); }
+
+  .input-row { display: flex; gap: 8px; align-items: flex-end; }
+
+  textarea {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-dark);
+    resize: none;
+    height: 44px;
+    max-height: 120px;
+    background: var(--cream);
+    line-height: 1.5;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(200,146,42,0.1);
+    background: var(--white);
+  }
+
+  textarea::placeholder { color: var(--text-light); }
+
+  .send-btn {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--navy);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .send-btn:hover { background: var(--navy-light); }
+  .send-btn:active { transform: scale(0.95); }
+  .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .input-hint { font-size: 0.7rem; color: var(--text-light); margin-top: 7px; text-align: center; }
+
+  /* CONTACT FORM */
+  .contact-form {
+    margin-top: 12px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .contact-form-title { font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+
+  .contact-form input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    background: var(--white);
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+
+  .contact-form input:focus { outline: none; border-color: var(--gold); }
+
+  .contact-form button {
+    width: 100%;
+    padding: 11px;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .contact-form button:hover { background: var(--gold-light); }
+  .contact-form-note { font-size: 0.68rem; color: var(--text-light); margin-top: 8px; text-align: center; }
+
+  @media (max-width: 860px) {
+    .main { grid-template-columns: 1fr; padding: 20px 4%; }
+    .intro { position: static; }
+    .intro h1 { font-size: 1.9rem; }
+    .chat-messages { height: 380px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">e<span>Solicitors</span>.ie</a>
+  <span class="nav-tag">Free Legal Matching · All 26 Counties</span>
+</nav>
+
+<div class="main">
+
+  <div class="intro">
+    <div class="intro-badge">⚖ Free · Confidential · No Obligation</div>
+    <h1>Tell us what<br>happened.<br><em>We'll find your solicitor.</em></h1>
+    <p>Don't know if you have a case? Not sure what type of solicitor you need? Just describe your situation in plain language. Our AI will understand it, show you similar cases, and match you with the right solicitor in your county — for free.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-dot">1</div>
+        <div class="how-step-text">
+          <strong>Describe your situation</strong>
+          <span>In your own words. No legal knowledge needed.</span>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-dot">2</div>
+        <div class="how-step-text">
+          <strong>See similar cases</strong>
+          <span>Real situations, real outcomes from across Ireland.</span>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-dot">3</div>
+        <div class="how-step-text">
+          <strong>Get matched instantly</strong>
+          <span>A named solicitor in your county, with reviews.</span>
+        </div>
+      </div>
+    </div>
+    <div class="trust-row">
+      <div class="trust-pill">🔒 Confidential</div>
+      <div class="trust-pill">✓ Free to use</div>
+      <div class="trust-pill">📍 All 26 Counties</div>
+    </div>
+  </div>
+
+  <div class="chat-panel">
+    <div class="chat-header">
+      <div class="chat-avatar">⚖️</div>
+      <div class="chat-header-text">
+        <strong>eSolicitors Assistant</strong>
+        <span>AI-powered · Matches real solicitors</span>
+      </div>
+      <div class="online-dot"></div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <div class="chat-input-area">
+      <div class="county-row" id="countyRow">
+        <label>Your County</label>
+        <select id="countySelect">
+          <option value="">Select your county...</option>
+          <option>Dublin</option><option>Cork</option><option>Galway</option>
+          <option>Limerick</option><option>Waterford</option><option>Kilkenny</option>
+          <option>Tipperary</option><option>Clare</option><option>Kerry</option>
+          <option>Wexford</option><option>Wicklow</option><option>Kildare</option>
+          <option>Meath</option><option>Louth</option><option>Westmeath</option>
+          <option>Offaly</option><option>Laois</option><option>Carlow</option>
+          <option>Longford</option><option>Roscommon</option><option>Mayo</option>
+          <option>Sligo</option><option>Leitrim</option><option>Cavan</option>
+          <option>Monaghan</option><option>Donegal</option>
+        </select>
+      </div>
+      <div class="input-row">
+        <textarea id="chatInput" placeholder="Tell us what happened..."></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="input-hint">🔒 Your story is private and never shared without your consent</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── DATA ──
+
+  const SOLICITORS = {
+    "Dublin": [
+      { initials: "MO", name: "Máire O'Sullivan", firm: "O'Sullivan Legal, Dublin 2", specialities: ["personal injury","employment","family"], review: "Máire was calm and clear from the very first call. She explained everything without making me feel stupid, and we got a result I didn't think was possible.", reviewer: "Andrei, Dublin" },
+      { initials: "PF", name: "Patrick Farrell", firm: "Farrell & Co., Dublin 4", specialities: ["property","wills","debt"], review: "Patrick sorted my landlord situation within two weeks. I was panicking and he just took control.", reviewer: "Blessing, Dublin" }
+    ],
+    "Cork": [
+      { initials: "SO", name: "Séan O'Brien", firm: "O'Brien Solicitors, Cork City", specialities: ["personal injury","criminal","employment"], review: "Séan took my case when I didn't even think I had one. Dog bite on a delivery — he proved otherwise.", reviewer: "Damien, Cork" }
+    ],
+    "Galway": [
+      { initials: "CN", name: "Ciara Ní Fhlathartha", firm: "NíF Legal, Galway City", specialities: ["immigration","family","employment","property"], review: "Ciara understood my situation immediately. As a non-Irish person I was terrified. She handled everything.", reviewer: "Tomasz, Galway" }
+    ],
+    "Limerick": [
+      { initials: "DM", name: "Declan Murphy", firm: "Murphy & Associates, Limerick", specialities: ["property","debt","wills","personal injury"], review: "Declan was straightforward and honest. No false promises, just solid advice and a good result.", reviewer: "Sinéad, Limerick" }
+    ],
+    "default": [
+      { initials: "AK", name: "Aoife Kelly", firm: "Kelly Legal, Ireland", specialities: ["personal injury","employment","family","property","immigration","wills","debt","criminal"], review: "Aoife was incredibly professional and got back to me same day. I felt heard from the very first conversation.", reviewer: "Maria, Ireland" }
+    ]
+  };
+
+  const SIMILAR_CASES = {
+    "personal injury": [
+      { name: "Damien, Cork", desc: "Bitten by a dog while doing a delivery. Gate left unlatched by the homeowner. Didn't think he had a case.", outcome: "Settled for €18,500" },
+      { name: "Siobhan, Dublin", desc: "Slipped on a wet floor in a supermarket with no warning sign. Fractured her wrist.", outcome: "Received €14,200 compensation" }
+    ],
+    "employment": [
+      { name: "Maria, Dublin", desc: "Let go after 4 years with 2 days notice. No proper process, no real reason given.", outcome: "WRC ruled in her favour — €9,800" },
+      { name: "Oksana, Galway", desc: "Constructive dismissal — workplace became unbearable after she raised a safety concern.", outcome: "Settlement reached out of court" }
+    ],
+    "property": [
+      { name: "Tomasz, Galway", desc: "Landlord gave 30 days notice in January. Two kids in school nearby. No valid legal grounds.", outcome: "Eviction notice overturned" },
+      { name: "Ahmed, Cork", desc: "Deposit not returned after leaving rental. Landlord made false damage claims.", outcome: "Full deposit recovered + interest" }
+    ],
+    "family": [
+      { name: "Ciara, Wicklow", desc: "Husband refused to leave family home after separation. Didn't know she could apply for a safety order.", outcome: "Safety order granted within a week" },
+      { name: "Fionn, Dublin", desc: "Denied access to his children after separation with no court order in place.", outcome: "Access arrangement formalised" }
+    ],
+    "immigration": [
+      { name: "Blessing, Dublin", desc: "Visa renewal refused with no explanation. Had been living and working legally in Ireland for 6 years.", outcome: "Appeal successful, visa renewed" },
+      { name: "Kwame, Cork", desc: "IRP card not renewed on time due to employer error. Faced risk of losing work permit.", outcome: "Regularised without penalty" }
+    ],
+    "wills": [
+      { name: "Patricia, Kerry", desc: "Father died without a will. Three siblings disagreed about dividing the estate.", outcome: "Mediated agreement reached" },
+      { name: "David, Dublin", desc: "Cut out of parent's will after a new partner arrived. Believed there was undue influence.", outcome: "Will contested successfully" }
+    ],
+    "debt": [
+      { name: "Cormac, Mayo", desc: "Mortgage arrears building up after job loss. Bank threatened repossession.", outcome: "PIA arrangement protected his home" },
+      { name: "Svetlana, Dublin", desc: "Creditors calling daily. Owed money to three lenders. Felt completely overwhelmed.", outcome: "Debt management plan put in place" }
+    ],
+    "criminal": [
+      { name: "Ronan, Dublin", desc: "Charged with drink driving. First offence. Terrified about losing his licence and his job.", outcome: "Penalty points only, no disqualification" },
+      { name: "Aoibhe, Cork", desc: "Called in for a Garda interview without knowing her rights.", outcome: "No charges brought" }
+    ]
+  };
+
+  // ── STATE ──
+  let conversationHistory = [];
+  let userCounty = "";
+  let currentArea = "";
+  let isLoading = false;
+
+  // ── HELPERS ──
+
+  function detectArea(text) {
+    const t = text.toLowerCase();
+    if (t.match(/dog|bite|accident|injur|hurt|hospital|slip|fall|crash|car accident|medical|negligence/)) return "personal injury";
+    if (t.match(/fired|dismissed|sacked|redundan|unfair|wrc|discriminat|constructive dismissal|employer/)) return "employment";
+    if (t.match(/landlord|evict|rent|property|buy|sell|boundary|neighbour|convey|deposit|house/)) return "property";
+    if (t.match(/divorce|separat|custody|child|spouse|partner|marriage|domestic|barring|guardian/)) return "family";
+    if (t.match(/visa|immigration|irp|citizenship|deport|permit|asylum|refugee|stamp/)) return "immigration";
+    if (t.match(/will|probate|inherit|estate|executor|died|death/)) return "wills";
+    if (t.match(/debt|mortgage|loan|creditor|insolvency|bankrupt|arrears|repossess/)) return "debt";
+    if (t.match(/garda|criminal|charged|court|drink driving|assault|conviction|arrest/)) return "criminal";
+    return "personal injury";
+  }
+
+  function getSolicitor(county, area) {
+    const list = SOLICITORS[county] || SOLICITORS["default"];
+    return list.find(s => s.specialities.includes(area)) || list[0] || SOLICITORS["default"][0];
+  }
+
+  function scrollToBottom() {
+    const c = document.getElementById("chatMessages");
+    setTimeout(() => c.scrollTop = c.scrollHeight, 80);
+  }
+
+  // ── RENDER MESSAGES ──
+
+  function addMessage(role, html, extraNode = null) {
+    const container = document.getElementById("chatMessages");
+    const msg = document.createElement("div");
+    msg.className = `msg ${role}`;
+
+    const avatar = document.createElement("div");
+    avatar.className = "msg-avatar";
+    avatar.textContent = role === "ai" ? "⚖" : "👤";
+
+    const bubble = document.createElement("div");
+    bubble.className = "msg-bubble";
+    bubble.innerHTML = html;
+    if (extraNode) bubble.appendChild(extraNode);
+
+    msg.appendChild(avatar);
+    msg.appendChild(bubble);
+    container.appendChild(msg);
+    scrollToBottom();
+  }
+
+  function showTyping() {
+    const container = document.getElementById("chatMessages");
+    const msg = document.createElement("div");
+    msg.className = "msg ai";
+    msg.id = "typingIndicator";
+    msg.innerHTML = `
+      <div class="msg-avatar">⚖</div>
+      <div class="typing-dots">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>`;
+    container.appendChild(msg);
+    scrollToBottom();
+  }
+
+  function removeTyping() {
+    const t = document.getElementById("typingIndicator");
+    if (t) t.remove();
+  }
+
+  // ── BUILD CARDS ──
+
+  function buildCasesNode(area) {
+    const cases = (SIMILAR_CASES[area] || SIMILAR_CASES["personal injury"]).slice(0, 2);
+    const wrap = document.createElement("div");
+    wrap.className = "similar-cases";
+    wrap.innerHTML = `<div class="similar-label">Similar cases in Ireland</div>`;
+    cases.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "case-card";
+      card.innerHTML = `
+        <div class="case-name">${c.name}</div>
+        <div class="case-desc">${c.desc}</div>
+        <div class="case-outcome">✓ ${c.outcome}</div>`;
+      wrap.appendChild(card);
+    });
+    return wrap;
+  }
+
+  function buildSolicitorNode(sol) {
+    const div = document.createElement("div");
+    div.className = "solicitor-card";
+    div.innerHTML = `
+      <div class="sol-tag">✓ Recommended Solicitor for Your Case</div>
+      <div class="sol-header">
+        <div class="sol-avatar">${sol.initials}</div>
+        <div>
+          <div class="sol-name">${sol.name}</div>
+          <div class="sol-firm">${sol.firm}</div>
+        </div>
+      </div>
+      <div class="sol-stars">★★★★★</div>
+      <div class="sol-review">
+        "${sol.review}"
+        <div class="sol-review-author">— ${sol.reviewer}</div>
+      </div>
+      <div class="sol-btns">
+        <button class="sol-btn sol-btn-primary" onclick="showContactForm('${sol.name.split(' ')[0]}')">📞 Connect With ${sol.name.split(' ')[0]}</button>
+        <button class="sol-btn sol-btn-secondary" onclick="showContactForm('${sol.name.split(' ')[0]}')">✉ Send My Details</button>
+      </div>`;
+    return div;
+  }
+
+  function showContactForm(solFirstName) {
+    const container = document.getElementById("chatMessages");
+    const msg = document.createElement("div");
+    msg.className = "msg ai";
+
+    const avatar = document.createElement("div");
+    avatar.className = "msg-avatar";
+    avatar.textContent = "⚖";
+
+    const bubble = document.createElement("div");
+    bubble.className = "msg-bubble";
+    bubble.innerHTML = `To connect you with ${solFirstName}, I just need your name and number. They'll call you directly — no middleman.`;
+
+    const form = document.createElement("div");
+    form.className = "contact-form";
+    form.innerHTML = `
+      <div class="contact-form-title">Enter your details below:</div>
+      <input type="text" id="leadName" placeholder="Your full name" />
+      <input type="tel" id="leadPhone" placeholder="Your phone number (08x...)" />
+      <button onclick="submitLead('${solFirstName}')">Send My Details →</button>
+      <div class="contact-form-note">🔒 Only shared with your matched solicitor. Never sold.</div>`;
+
+    bubble.appendChild(form);
+    msg.appendChild(avatar);
+    msg.appendChild(bubble);
+    container.appendChild(msg);
+    scrollToBottom();
+  }
+
+  // ── SUBMIT LEAD ──
+
+  async function submitLead(solFirstName) {
+    const name = document.getElementById("leadName")?.value.trim();
+    const phone = document.getElementById("leadPhone")?.value.trim();
+
+    if (!name || !phone) {
+      alert("Please enter your name and phone number.");
+      return;
+    }
+
+    const summary = conversationHistory
+      .filter(m => m.role === "user")
+      .map(m => m.content)
+      .join(" | ")
+      .slice(0, 500);
+
+    // Log to Google Sheets (silent fail — don't block user)
+    try {
+      await fetch("/api/log-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          county: userCounty || "Not provided",
+          area: currentArea || "Not provided",
+          summary
+        })
+      });
+    } catch (e) {
+      console.error("Lead log failed:", e);
+    }
+
+    addMessage("ai", `✅ <strong>Done, ${name}.</strong><br><br>Your details have been passed on. ${solFirstName} will be in touch within a few hours. The first consultation is completely free — no obligation to proceed.<br><br>Good luck. You've done the right thing by reaching out. 🍀`);
+  }
+
+  // ── SEND MESSAGE ──
+
+  async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const text = input.value.trim();
+    if (!text || isLoading) return;
+
+    input.value = "";
+    input.style.height = "44px";
+    addMessage("user", text);
+
+    conversationHistory.push({ role: "user", content: text });
+    isLoading = true;
+    document.getElementById("sendBtn").disabled = true;
+
+    // Show county selector after first message
+    const countyRow = document.getElementById("countyRow");
+    countyRow.classList.add("visible");
+    document.getElementById("countySelect").onchange = function() {
+      if (this.value) {
+        userCounty = this.value;
+        countyRow.classList.remove("visible");
+      }
+    };
+
+    // Detect area from full conversation so far
+    const fullText = conversationHistory.map(m => m.content).join(" ");
+    currentArea = detectArea(fullText);
+
+    showTyping();
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: conversationHistory,
+          area: currentArea,
+          county: userCounty
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const aiText = data.text || "I understand your situation. Let me find the right solicitor for you.";
+
+      removeTyping();
+
+      // Build combined extra: cases + solicitor
+      const extra = document.createElement("div");
+      extra.appendChild(buildCasesNode(currentArea));
+      extra.appendChild(buildSolicitorNode(getSolicitor(userCounty || "Dublin", currentArea)));
+
+      const formatted = aiText.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+      addMessage("ai", formatted, extra);
+
+      conversationHistory.push({ role: "assistant", content: aiText });
+
+    } catch (err) {
+      removeTyping();
+      console.error("Chat error:", err);
+      addMessage("ai", "Sorry, I had a small issue there. Please try again — or refresh the page if it keeps happening.");
+    }
+
+    isLoading = false;
+    document.getElementById("sendBtn").disabled = false;
+  }
+
+  // ── TEXTAREA AUTO-RESIZE ──
+  document.getElementById("chatInput").addEventListener("input", function() {
+    this.style.height = "44px";
+    this.style.height = Math.min(this.scrollHeight, 120) + "px";
+  });
+
+  // ── ENTER TO SEND ──
+  document.getElementById("chatInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // ── INIT GREETING ──
+  addMessage("ai", `Hello, and welcome to <strong>eSolicitors.ie</strong>. 👋<br><br>I'm here to help you understand your situation and connect you with the right solicitor — completely free.<br><br>Whatever happened, just describe it in your own words below. You don't need to know any legal terms. Just tell me the story.`);
+</script>
+
+</body>
+</html>
