@@ -1004,16 +1004,18 @@ Tone rules:
 Current legal area detected: ${area}
 User county: ${userCounty || "not yet provided"}`;
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        system: systemPrompt,
-        messages: conversationHistory
-      })
-    });
+    const response = await fetch("/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    messages: conversationHistory,
+    area: area,
+    county: userCounty || ""
+  })
+});
+
+const data = await response.json();
+const aiText = data.text || "I understand your situation. Let me find the right solicitor for you.";
 
     const data = await response.json();
     const aiText = data.content?.[0]?.text || "I understand your situation. Let me find the right solicitor for you.";
