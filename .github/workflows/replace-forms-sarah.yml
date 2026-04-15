@@ -1,0 +1,138 @@
+name: Replace Forms With Sarah + Fix Nav Width
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-and-inject:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run fixes across all HTML files
+        run: |
+          python3 << 'EOF'
+          import os
+          import glob
+          import re
+
+          files = list(set(glob.glob("./**/*.html", recursive=True) + glob.glob("./*.html")))
+
+          SARAH_INLINE = '<script src="/sarah.js" data-mode="inline"></script>'
+
+          SARAH_HERO = '''<div class="hero-form-wrap" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 40px 80px rgba(0,0,0,0.35);">
+              <script src="/sarah.js" data-mode="inline-hero"></script>
+            </div>'''
+
+          SARAH_HERO_MINIFIED = '<div class="hero-form" style="padding:0;overflow:hidden;"><script src="/sarah.js" data-mode="inline-hero"></script></div>'
+
+          SARAH_HERO_CSS = """
+            /* Sarah in hero */
+            #es-inline-wrap {
+              margin: 0 !important;
+              height: 480px !important;
+              border-radius: 16px !important;
+            }
+          """
+
+          for filepath in sorted(files):
+              if '/api/' in filepath or '.github' in filepath:
+                  continue
+
+              try:
+                  with open(filepath, 'r', encoding='utf-8') as f:
+                      content = f.read()
+              except Exception as e:
+                  print(f"  SKIP: {filepath} — {e}")
+                  continue
+
+              changed = False
+
+              # ── FIX 1: Nav overflow ──
+              # Handles minified: nav{...justify-content:space-between}
+              # Handles formatted: justify-content: space-between;\n  }
+              already_fixed = re.search(r'nav\{[^}]*overflow:hidden', content) or \
+                              re.search(r'nav \{[^}]*overflow:\s*hidden', content)
+
+              if not already_fixed:
+                  # Try minified first
+                  new = re.sub(
+                      r'(nav\{[^}]*?justify-content:space-between)([;}])',
+                      r'\1;overflow:hidden\2',
+                      content
+                  )
+                  if new != content:
+                      content = new
+                      changed = True
+                      print(f"  Nav fixed (minified): {filepath}")
+                  else:
+                      # Try formatted
+                      new = re.sub(
+                          r'(justify-content:\s*space-between;)((\s*\n\s*)\})',
+                          r'\1\3  overflow: hidden;\2',
+                          content,
+                          count=1
+                      )
+                      if new != content:
+                          content = new
+                          changed = True
+                          print(f"  Nav fixed (formatted): {filepath}")
+                      else:
+                          print(f"  Nav pattern not matched: {filepath}")
+
+              # ── FIX 2: Replace hero form with Sarah ──
+              if 'sarah.js' not in content:
+                  if 'hero-form-wrap' in content:
+                      new = re.sub(
+                          r'<div class="hero-form-wrap"[^>]*>.*?</div>',
+                          SARAH_HERO,
+                          content,
+                          flags=re.DOTALL
+                      )
+                      if new != content:
+                          content = new
+                          if '</style>' in content and 'es-inline-wrap' not in content:
+                              content = content.replace('</style>', SARAH_HERO_CSS + '\n</style>', 1)
+                          changed = True
+                          print(f"  Hero form-wrap replaced: {filepath}")
+                      else:
+                          content = content.replace('</body>', f'  {SARAH_INLINE}\n</body>')
+                          changed = True
+                          print(f"  Sarah injected (fallback): {filepath}")
+
+                  elif 'class="hero-form"' in content:
+                      new = re.sub(
+                          r'<div class="hero-form"[^>]*>.*?</div>',
+                          SARAH_HERO_MINIFIED,
+                          content,
+                          flags=re.DOTALL
+                      )
+                      if new != content:
+                          content = new
+                          changed = True
+                          print(f"  Hero form replaced (minified): {filepath}")
+                      else:
+                          content = content.replace('</body>', f'  {SARAH_INLINE}\n</body>')
+                          changed = True
+                          print(f"  Sarah injected (fallback): {filepath}")
+
+                  else:
+                      content = content.replace('</body>', f'  {SARAH_INLINE}\n</body>')
+                      changed = True
+                      print(f"  Sarah injected: {filepath}")
+
+              if changed:
+                  with open(filepath, 'w', encoding='utf-8') as f:
+                      f.write(content)
+
+          print("\nAll done.")
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: replace lead forms with Sarah chat + fix nav overflow on all pages"
+          git push
