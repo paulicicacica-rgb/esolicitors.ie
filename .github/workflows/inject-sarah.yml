@@ -1,0 +1,75 @@
+name: Inject Sarah Chat Widget
+
+on:
+  workflow_dispatch: # Run manually from GitHub Actions tab
+
+jobs:
+  inject-sarah:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Copy sarah.js to root
+        run: |
+          # sarah.js should already be in the repo root.
+          # If it's not there yet, this step will warn you.
+          if [ ! -f "sarah.js" ]; then
+            echo "WARNING: sarah.js not found in repo root. Upload it first."
+            exit 1
+          fi
+          echo "sarah.js found."
+
+      - name: Inject script tag into all HTML files
+        run: |
+          python3 << 'EOF'
+          import os
+          import glob
+
+          INLINE_TAG = '<script src="/sarah.js" data-mode="inline"></script>'
+          FLOAT_TAG  = '<script src="/sarah.js" data-mode="float"></script>'
+
+          # Root HTML files get float mode (homepage, chat page)
+          ROOT_FILES = glob.glob("./*.html")
+
+          # All HTML files inside subfolders get inline mode
+          SUB_FILES = glob.glob("./**/*.html", recursive=True)
+          SUB_FILES = [f for f in SUB_FILES if not f.startswith("./api/")]
+          # Remove root files from subfolder list
+          SUB_FILES = [f for f in SUB_FILES if f not in ROOT_FILES]
+
+          def already_injected(content):
+              return "sarah.js" in content
+
+          def inject(filepath, tag):
+              with open(filepath, "r", encoding="utf-8") as f:
+                  content = f.read()
+              if already_injected(content):
+                  print(f"  SKIP (already injected): {filepath}")
+                  return
+              if "</body>" in content:
+                  content = content.replace("</body>", f"  {tag}\n</body>")
+              else:
+                  content += f"\n{tag}\n"
+              with open(filepath, "w", encoding="utf-8") as f:
+                  f.write(content)
+              print(f"  Injected: {filepath}")
+
+          print("\n-- Root files (float mode) --")
+          for f in ROOT_FILES:
+              inject(f, FLOAT_TAG)
+
+          print("\n-- Subfolder files (inline mode) --")
+          for f in SUB_FILES:
+              inject(f, INLINE_TAG)
+
+          print("\nDone.")
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: inject Sarah chat widget into all pages"
+          git push
