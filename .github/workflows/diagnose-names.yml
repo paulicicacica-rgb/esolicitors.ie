@@ -1,0 +1,34 @@
+name: Diagnostic - Print Case Card Names
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Print all case card names
+        run: |
+          python3 - << 'PYEOF'
+          import glob, re
+          files = sorted(glob.glob("./**/*.html", recursive=True) + glob.glob("./*.html"))
+          for filepath in files:
+              if '.github' in filepath or '/api/' in filepath:
+                  continue
+              try:
+                  with open(filepath, 'r', encoding='utf-8') as f:
+                      content = f.read()
+              except:
+                  continue
+              if 'case-card' not in content:
+                  continue
+              names = re.findall(r'class="case-name">([^<]+)<', content)
+              if names:
+                  print(filepath)
+                  for n in names:
+                      print(f"  {n.strip()}")
+                  print()
+          PYEOF
