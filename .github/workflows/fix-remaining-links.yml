@@ -1,0 +1,155 @@
+name: Fix Remaining Links
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Fix remaining unlinked cards
+        run: |
+          python3 - << 'PYEOF'
+          import glob, re, os, unicodedata
+
+          def slugify(text):
+              text = unicodedata.normalize('NFD', text)
+              text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+              text = text.lower().strip()
+              text = re.sub(r'[^a-z0-9\s-]', '', text)
+              text = re.sub(r'[\s,]+', '-', text).strip('-')
+              return text
+
+          PROBLEM_PAGES = [
+              "./personal-injury/assault/index.html",
+              "./personal-injury/car-accident/index.html",
+              "./personal-injury/cycling-accident/index.html",
+              "./personal-injury/defective-product/index.html",
+              "./personal-injury/holiday-accident/index.html",
+              "./personal-injury/medical-negligence/index.html",
+              "./personal-injury/pothole/index.html",
+              "./personal-injury/public-liability/index.html",
+              "./personal-injury/slip-fall/index.html",
+              "./personal-injury/sports-injury/index.html",
+              "./employment-law/workplace-bullying/index.html",
+          ]
+
+          for filepath in PROBLEM_PAGES:
+              if not os.path.exists(filepath):
+                  print(f"FILE NOT FOUND: {filepath}")
+                  continue
+
+              hub_folder = os.path.dirname(filepath).lstrip('./')
+
+              # List actual story folders that exist
+              existing = [d for d in os.listdir(f'./{hub_folder}')
+                         if os.path.isdir(f'./{hub_folder}/{d}') and d != '__pycache__']
+              print(f"\n{hub_folder} — existing folders: {existing}")
+
+              with open(filepath, 'r', encoding='utf-8') as f:
+                  content = f.read()
+
+              # Get unlinked card names
+              names = re.findall(r'<div class="case-card">\s*<div class="case-name">([^<]+)</div>', content)
+              print(f"  Unlinked cards: {names}")
+
+              for name_loc in names:
+                  name_loc = name_loc.strip()
+                  slug = slugify(name_loc.replace(', ', '-'))
+                  print(f"  '{name_loc}' -> slug: '{slug}' -> exists: {slug in existing}")
+
+                  if slug not in existing:
+                      # Try to find closest match
+                      for folder in existing:
+                          if folder.split('-')[0] in slug or slug.split('-')[0] in folder:
+                              print(f"    Closest match: {folder}")
+                              break
+          PYEOF
+
+      - name: Now fix the links
+        run: |
+          python3 - << 'PYEOF'
+          import glob, re, os, unicodedata
+
+          def slugify(text):
+              text = unicodedata.normalize('NFD', text)
+              text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+              text = text.lower().strip()
+              text = re.sub(r'[^a-z0-9\s-]', '', text)
+              text = re.sub(r'[\s,]+', '-', text).strip('-')
+              return text
+
+          files = sorted(set(
+              glob.glob("./**/*.html", recursive=True) +
+              glob.glob("./*.html")
+          ))
+
+          fixed = 0
+
+          for filepath in files:
+              if '.github' in filepath or '/api/' in filepath:
+                  continue
+              parts = filepath.replace('./', '').split('/')
+              if len(parts) > 3:
+                  continue
+              try:
+                  with open(filepath, 'r', encoding='utf-8') as f:
+                      content = f.read()
+              except:
+                  continue
+              if '<div class="case-card">' not in content:
+                  continue
+
+              hub_folder = os.path.dirname(filepath).lstrip('./')
+              existing_folders = set(
+                  d for d in os.listdir(f'./{hub_folder}')
+                  if os.path.isdir(f'./{hub_folder}/{d}')
+              )
+              original = content
+
+              def replace_card(m):
+                  name_loc = m.group(1).strip()
+                  inner = m.group(2)
+                  slug = slugify(name_loc.replace(', ', '-'))
+
+                  # Exact match
+                  if slug in existing_folders:
+                      url = f"/{hub_folder}/{slug}/"
+                      print(f"  Linked: {name_loc} -> {url}")
+                      return f'<a href="{url}" class="case-card" style="text-decoration:none;display:block;cursor:pointer;"><div class="case-name">{name_loc}</div>{inner}</div></a>'
+
+                  # Fuzzy match — first name matches
+                  first_name = slug.split('-')[0]
+                  for folder in existing_folders:
+                      if folder.startswith(first_name + '-'):
+                          url = f"/{hub_folder}/{folder}/"
+                          print(f"  Fuzzy linked: {name_loc} -> {url}")
+                          return f'<a href="{url}" class="case-card" style="text-decoration:none;display:block;cursor:pointer;"><div class="case-name">{name_loc}</div>{inner}</div></a>'
+
+                  print(f"  No match: {name_loc} (slug: {slug})")
+                  return m.group(0)
+
+              pattern = re.compile(
+                  r'<div class="case-card">\s*<div class="case-name">([^<]+)</div>(.*?)</div>',
+                  re.DOTALL
+              )
+              new_content = pattern.sub(replace_card, content)
+
+              if new_content != original:
+                  with open(filepath, 'w', encoding='utf-8') as f:
+                      f.write(new_content)
+                  fixed += 1
+
+          print(f"\nFixed {fixed} files.")
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "fix: link remaining case cards with fuzzy matching"
+          git push
