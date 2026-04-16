@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSolicitors Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0f1e35;
+    --navy-mid: #1a2f4a;
+    --gold: #b8975a;
+    --cream: #f7f4ef;
+    --text: #1c1c1c;
+    --text-soft: #5a5a5a;
+    --border: #e2ddd6;
+    --white: #ffffff;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .trust-badge {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-soft);
+  }
+
+  .chat-wrap {
+    width: 100%;
+    max-width: 420px;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(15,30,53,0.12);
+    display: flex;
+    flex-direction: column;
+    height: 620px;
+  }
+
+  .chat-header {
+    background: var(--navy);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+  }
+  .header-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--gold);
+  }
+  .header-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .header-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+  .header-text p {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+  .status-dot {
+    width: 9px; height: 9px;
+    background: #4ade80;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 2px rgba(74,222,128,0.25); }
+    50% { box-shadow: 0 0 0 6px rgba(74,222,128,0.08); }
+  }
+
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    scroll-behavior: smooth;
+  }
+  .messages::-webkit-scrollbar { width: 4px; }
+  .messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .msg-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    animation: fadeUp 0.3s ease;
+  }
+  .msg-row.user { flex-direction: row-reverse; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1.5px solid var(--gold);
+  }
+  .msg-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .bubble {
+    max-width: 78%;
+    padding: 12px 15px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .bubble.ai { background: #f0ede8; color: var(--text); border-bottom-left-radius: 4px; }
+  .bubble.user { background: var(--navy); color: var(--white); border-bottom-right-radius: 4px; }
+
+  /* Solicitor cards — clear, no blur */
+  .solicitor-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 2px;
+    animation: fadeUp 0.4s ease;
+    padding-left: 38px;
+  }
+  .sol-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(15,30,53,0.06);
+  }
+  .sol-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1.5px solid var(--border);
+  }
+  .sol-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .sol-info { flex: 1; min-width: 0; }
+  .sol-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .sol-area { font-size: 11px; color: var(--text-soft); margin-top: 1px; }
+  .sol-stars { color: #f5a623; font-size: 11px; margin-top: 3px; }
+  .sol-badge {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 3px 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .typing {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    animation: fadeUp 0.3s ease;
+  }
+  .typing-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1.5px solid var(--gold);
+  }
+  .typing-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .typing-bubble {
+    background: #f0ede8;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    padding: 12px 16px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    background: #bbb;
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce {
+    0%,60%,100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+
+  .input-wrap {
+    border-top: 1px solid var(--border);
+    padding: 14px 16px;
+    background: var(--white);
+  }
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    transition: border-color 0.2s;
+  }
+  .input-row:focus-within { border-color: var(--gold); }
+  .input-row textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    resize: none;
+    outline: none;
+    line-height: 1.5;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+  .input-row textarea::placeholder { color: #bbb; }
+  .send-btn {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--navy);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .send-btn:hover { background: var(--navy-mid); }
+  .send-btn:active { transform: scale(0.95); }
+  .send-btn svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2; }
+  .privacy-note {
+    text-align: center;
+    font-size: 11px;
+    color: #bbb;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="trust-row">
+  <span class="trust-badge">Confidential</span>
+  <span class="trust-badge">Free to use</span>
+  <span class="trust-badge">All 26 Counties</span>
+</div>
+
+<div class="chat-wrap">
+  <div class="chat-header">
+    <div class="header-avatar">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sarah"/>
+    </div>
+    <div class="header-text">
+      <h2>Sarah — eSolicitors.ie</h2>
+      <p>Legal intake assistant &middot; Here to help</p>
+    </div>
+    <div class="status-dot"></div>
+  </div>
+
+  <div class="messages" id="messages">
+    <div class="msg-row">
+      <div class="msg-avatar">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sarah"/>
+      </div>
+      <div class="bubble ai">
+        Hi, I'm Sarah from eSolicitors.ie.<br><br>
+        Whatever has brought you here today — tell me what happened and I will make sure you get to the right solicitor.
+      </div>
+    </div>
+  </div>
+
+  <div class="input-wrap">
+    <div class="input-row">
+      <textarea id="userInput" rows="1" placeholder="Tell me what happened..." oninput="autoResize(this)" onkeydown="handleKey(event)"></textarea>
+      <button class="send-btn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+    <div class="privacy-note">Your story is private and never shared without your consent</div>
+  </div>
+</div>
+
+<script>
+const SARAH_AVATAR = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face";
+
+const SOLICITOR_PROFILES = [
+  { name: "Ciara O'Brien", area: "Criminal & Road Traffic Law", county: "Dublin", reviews: 47, rating: "5.0", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face" },
+  { name: "Michael Fitzgerald", area: "Drink Driving Defence", county: "Cork", reviews: 31, rating: "4.9", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" },
+  { name: "Sinead Gallagher", area: "Road Traffic Offences", county: "Galway", reviews: 28, rating: "5.0", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face" },
+];
+
+let conversationHistory = [];
+let stage = "story";
+let collectedData = {};
+
+const systemPrompt = `You are Sarah, a warm and caring intake assistant for eSolicitors.ie, an Irish solicitor matching service. You are kind, human, and make people feel immediately at ease.
+
+STAGE: story
+- The user has just described their situation.
+- Respond with genuine warmth and empathy (2-3 sentences). Do NOT give legal advice.
+- Say something like: "You are in the right place. Whatever has happened, the most important thing right now is getting a good solicitor on your side — and that is exactly what we are here for. Why don't you leave me your name and number and one of our solicitors will be in touch with you shortly."
+- Ask: "Can I start with your first name?"
+- Set next_stage to: name
+- Set show_solicitors to: true
+
+STAGE: name
+- User gave their name. Use it warmly.
+- Ask: "Thank you. And what is the best number for a solicitor to reach you on?"
+- Set next_stage to: phone
+
+STAGE: phone
+- User gave their phone number.
+- Respond warmly. Say: "Perfect. One of our solicitors will be in touch with you shortly — usually within a few hours. You are in good hands."
+- Set next_stage to: done
+
+STAGE: done
+- Respond briefly and reassuringly if the user says anything else.
+
+RULES:
+- You are Sarah. Always warm, never robotic.
+- Never give legal advice. Never mention fees.
+- 2-4 sentences max per reply.
+- No emojis. No slang. Plain warm English.
+- Respond ONLY with valid JSON, no markdown, no backticks:
+{"message": "your response", "next_stage": "name|phone|done", "show_solicitors": true|false}
+show_solicitors is true ONLY for the first reply to the user's story.`;
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+function addMessage(text, isUser) {
+  const messages = document.getElementById('messages');
+  const row = document.createElement('div');
+  row.className = 'msg-row' + (isUser ? ' user' : '');
+  if (!isUser) {
+    const av = document.createElement('div');
+    av.className = 'msg-avatar';
+    av.innerHTML = `<img src="${SARAH_AVATAR}" alt="Sarah"/>`;
+    row.appendChild(av);
+  }
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble ' + (isUser ? 'user' : 'ai');
+  bubble.textContent = text;
+  row.appendChild(bubble);
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function showSolicitorCards() {
+  const messages = document.getElementById('messages');
+  const wrap = document.createElement('div');
+  wrap.className = 'solicitor-cards';
+  SOLICITOR_PROFILES.forEach(sol => {
+    const card = document.createElement('div');
+    card.className = 'sol-card';
+    card.innerHTML = `
+      <div class="sol-avatar"><img src="${sol.img}" alt="${sol.name}"/></div>
+      <div class="sol-info">
+        <div class="sol-name">${sol.name}</div>
+        <div class="sol-area">${sol.area} &middot; ${sol.county}</div>
+        <div class="sol-stars">★★★★★ <span style="color:#999;font-size:10px">${sol.rating} (${sol.reviews} reviews)</span></div>
+      </div>
+      <div class="sol-badge">Verified</div>`;
+    wrap.appendChild(card);
+  });
+  messages.appendChild(wrap);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function showTyping() {
+  const messages = document.getElementById('messages');
+  const row = document.createElement('div');
+  row.className = 'typing';
+  row.id = 'typing-indicator';
+  row.innerHTML = `
+    <div class="typing-avatar"><img src="${SARAH_AVATAR}" alt="Sarah"/></div>
+    <div class="typing-bubble"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('userInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  input.style.height = 'auto';
+  addMessage(text, true);
+  conversationHistory.push({ role: "user", content: text });
+  if (stage === 'name') collectedData.name = text;
+  if (stage === 'phone') collectedData.phone = text;
+  showTyping();
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        system: systemPrompt + `\n\nCurrent stage: ${stage}`,
+        messages: conversationHistory
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      const errMsg = errData.error || `HTTP ${response.status}`;
+      console.error("API error:", errMsg, errData);
+      removeTyping();
+      addMessage(`Error: ${errMsg}`, false);
+      return;
+    }
+
+    const data = await response.json();
+    removeTyping();
+    const raw = data.content?.[0]?.text || '{"message":"I am sorry, something went wrong. Please try again.","next_stage":"story","show_solicitors":false}';
+    let parsed;
+    try {
+      // Strip markdown fences, find first { ... } block
+      const clean = raw.replace(/```json|```/g, '').trim();
+      const jsonMatch = clean.match(/\{[\s\S]*\}/);
+      parsed = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
+      if (!parsed || !parsed.message) throw new Error('No message field');
+    } catch (e) {
+      console.error("JSON parse failed:", e.message, "\nRaw:", raw);
+      // If it's plain text just show it
+      parsed = { message: raw.replace(/[{}"\\]/g, '').trim() || "I am sorry, something went wrong.", next_stage: stage, show_solicitors: false };
+    }
+    addMessage(parsed.message, false);
+    conversationHistory.push({ role: "assistant", content: parsed.message });
+    if (parsed.show_solicitors) setTimeout(showSolicitorCards, 500);
+    if (parsed.next_stage) stage = parsed.next_stage;
+    if (stage === 'done' && collectedData.phone) {
+      console.log('Lead captured:', collectedData);
+      // TODO: POST to Google Sheets webhook
+    }
+  } catch (err) {
+    removeTyping();
+    console.error("Fetch error:", err);
+    addMessage("Network error: " + err.message, false);
+  }
+}
+</script>
+
+</body>
+</html>
