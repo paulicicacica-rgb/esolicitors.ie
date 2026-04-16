@@ -204,6 +204,38 @@ footer{background:#080f1e;padding:44px 5% 24px}
     }
   }
 
+.sarah-widget{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.25)}
+.sarah-header{background:var(--navy,#0c1f3d);padding:14px 18px;display:flex;align-items:center;gap:12px;position:relative}
+.sarah-av{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold,#c8922a);flex-shrink:0}
+.sarah-av img{width:100%;height:100%;object-fit:cover}
+.sarah-header-text strong{display:block;font-size:.88rem;font-weight:600;color:#fff}
+.sarah-header-text span{font-size:.75rem;color:rgba(255,255,255,0.45)}
+.sarah-online{width:8px;height:8px;background:#4ade80;border-radius:50%;position:absolute;right:16px;top:50%;transform:translateY(-50%)}
+.sarah-messages{height:300px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;background:#f7f3ee}
+.sarah-messages::-webkit-scrollbar{width:3px}
+.sarah-messages::-webkit-scrollbar-thumb{background:#e2ddd6;border-radius:2px}
+.smsg{display:flex;align-items:flex-end;gap:7px}
+.smsg.user{flex-direction:row-reverse}
+.smsg-av{width:26px;height:26px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid var(--gold,#c8922a)}
+.smsg-av img{width:100%;height:100%;object-fit:cover}
+.smsg-bubble{max-width:78%;padding:9px 12px;border-radius:12px;font-size:.83rem;line-height:1.6}
+.smsg.ai .smsg-bubble{background:#fff;color:var(--navy,#0c1f3d);border-bottom-left-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.smsg.user .smsg-bubble{background:var(--navy,#0c1f3d);color:#fff;border-bottom-right-radius:3px}
+.sarah-typing{display:flex;align-items:flex-end;gap:7px}
+.sarah-typing-bubble{background:#fff;border-radius:12px;border-bottom-left-radius:3px;padding:9px 12px;display:flex;gap:3px;align-items:center}
+.sarah-dot{width:5px;height:5px;background:#bbb;border-radius:50%;animation:sbounce 1.2s infinite}
+.sarah-dot:nth-child(2){animation-delay:.2s}
+.sarah-dot:nth-child(3){animation-delay:.4s}
+@keyframes sbounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.sarah-input-area{border-top:1px solid #e2ddd6;padding:10px 12px;background:#fff}
+.sarah-input-row{display:flex;align-items:center;gap:8px;background:#f7f3ee;border:1px solid #e2ddd6;border-radius:10px;padding:8px 12px;transition:border-color .2s}
+.sarah-input-row:focus-within{border-color:var(--gold,#c8922a)}
+.sarah-input-row textarea{flex:1;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:.83rem;color:var(--navy,#0c1f3d);resize:none;outline:none;line-height:1.5;max-height:70px;overflow-y:auto}
+.sarah-input-row textarea::placeholder{color:#bbb}
+.sarah-send{width:32px;height:32px;border-radius:7px;background:var(--navy,#0c1f3d);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.sarah-send:hover{background:#162d52}
+.sarah-note{text-align:center;font-size:.7rem;color:#bbb;margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -234,27 +266,27 @@ footer{background:#080f1e;padding:44px 5% 24px}
 <div class="fact-pill"><div class="fact-pill-num">Free</div><div class="fact-pill-label">Initial assessment</div></div>
 </div>
     </div>
-    <div class="chat-widget">
-      <div class="chat-widget-header">
-        <div class="chat-widget-avatar">⚖</div>
-        <div class="chat-widget-header-text">
-          <strong>eSolicitors Assistant</strong>
-          <span>Describe your situation — we will assess your case</span>
+    <div class="sarah-widget">
+      <div class="sarah-header">
+        <div class="sarah-av"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sarah"/></div>
+        <div class="sarah-header-text">
+          <strong>Sarah — eSolicitors.ie</strong>
+          <span>Legal intake assistant · Here to help</span>
         </div>
-        <div class="chat-online"></div>
+        <div class="sarah-online"></div>
       </div>
-      <div class="chat-messages" id="chatMessages"></div>
-      <div class="chat-input-area">
-        <div class="chat-input-row">
-          <textarea id="chatInput" placeholder="Describe what happened..."></textarea>
-          <button class="chat-send" id="sendBtn" onclick="sendMessage()">
-            <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      <div class="sarah-messages" id="sarahMessages"></div>
+      <div class="sarah-input-area">
+        <div class="sarah-input-row">
+          <textarea id="sarahInput" rows="1" placeholder="Tell me what happened..."></textarea>
+          <button class="sarah-send" id="sarahSendBtn" onclick="sarahSend()">
+            <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </div>
-        <div class="chat-note">Confidential · Free · No obligation</div>
+        <div class="sarah-note">Confidential · Free · No obligation</div>
       </div>
     </div>
-  </div>
+    </div>
 </section>
 <div class="page-wrap">
   <section class="section">
@@ -397,18 +429,21 @@ footer{background:#080f1e;padding:44px 5% 24px}
   </div>
 </footer>
 <script>
-function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));if(!isOpen)item.classList.add('open')}
-let history=[],isLoading=false;
-const systemPrompt=`You are a warm plain-language legal guide on eSolicitors.ie. The person is on the zero hours contracts casual workers rights Ireland page. Listen to their situation with empathy. Assess whether it sounds like a valid personal injury claim under Irish law. Give a realistic compensation range. Tell them one important thing to do or not do. Recommend they connect with a solicitor — warm not pushy. Tone: warm human direct. Reading age 10. Keep responses to 3 short paragraphs.`;
-function scrollChat(){const c=document.getElementById('chatMessages');setTimeout(()=>c.scrollTop=c.scrollHeight,80)}
-function addMsg(role,html,extra){const c=document.getElementById('chatMessages');const wrap=document.createElement('div');wrap.className='cmsg '+role;const av=document.createElement('div');av.className='cmsg-avatar';av.textContent=role==='ai'?'⚖':'—';const bub=document.createElement('div');bub.className='cmsg-bubble';bub.innerHTML=html;if(extra)bub.appendChild(extra);wrap.appendChild(av);wrap.appendChild(bub);c.appendChild(wrap);scrollChat()}
-function showTyping(){const c=document.getElementById('chatMessages');const wrap=document.createElement('div');wrap.className='cmsg ai';wrap.id='typing';wrap.innerHTML='<div class="cmsg-avatar">⚖</div><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';c.appendChild(wrap);scrollChat()}
-function removeTyping(){const t=document.getElementById('typing');if(t)t.remove()}
-function buildResultCard(text){const rangeMatch=text.match(/€[\\d,]+[\\s\\-–]+€[\\d,k+]+|€[\\d,k]+\\+/i);const range=rangeMatch?rangeMatch[0]:'Depends on severity';const div=document.createElement('div');div.className='chat-result';div.innerHTML='<div class="chat-result-title">Initial Assessment</div><div class="chat-result-row"><span class="chat-result-label">Claim likely?</span><span class="chat-result-value">Worth pursuing</span></div><div class="chat-result-row"><span class="chat-result-label">Estimated range</span><span class="chat-result-value green">'+range+'</span></div><div class="chat-result-row"><span class="chat-result-label">Cost to you</span><span class="chat-result-value">Nothing — no win no fee</span></div><button class="chat-connect-btn" onclick="window.location=\'/chat.html\'">Get Matched With a Solicitor</button>';return div}
-async function sendMessage(){const input=document.getElementById('chatInput');const text=input.value.trim();if(!text||isLoading)return;input.value='';input.style.height='40px';addMsg('user',text);history.push({role:'user',content:text});isLoading=true;document.getElementById('sendBtn').disabled=true;showTyping();try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history,area:'zero hours contracts casual workers rights Ireland',county:''})});if(!res.ok)throw new Error('error');const data=await res.json();const aiText=data.text||'That does sound like something worth looking at. Let me help you find the right solicitor.';removeTyping();const formatted=aiText.replace(/\\n\\n/g,'<br><br>').replace(/\\n/g,'<br>');const isFirst=history.filter(m=>m.role==='assistant').length===0;addMsg('ai',formatted,isFirst?buildResultCard(aiText):null);history.push({role:'assistant',content:aiText})}catch(e){removeTyping();addMsg('ai','Sorry, I had a small issue. Try again or <a href="/chat.html" style="color:var(--gold)">open the full chat</a>.')}isLoading=false;document.getElementById('sendBtn').disabled=false}
-document.getElementById('chatInput').addEventListener('input',function(){this.style.height='40px';this.style.height=Math.min(this.scrollHeight,100)+'px'});
-document.getElementById('chatInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}});
-addMsg('ai','Hello. I am here to help you understand your situation.<br><br>Tell me what happened — where you were, what occurred, any injuries you sustained. Plain language is fine. I will let you know if you likely have a case and what it may be worth.');
+const SARAH_IMG_URL = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face";
+let sarahHistory = [], sarahStage = "story", sarahCollected = {};
+const SARAH_PROMPT = "You are Sarah, a warm intake assistant for eSolicitors.ie. Be kind and human. " +
+  "STAGE: story - Respond warmly 2-3 sentences. Ask for first name. next_stage: name. " +
+  "STAGE: name - Ask for best phone number. next_stage: phone. " +
+  "STAGE: phone - Confirm solicitor in touch within hours. next_stage: done. " +
+  "STAGE: done - Brief reassurance. " +
+  "RULES: No legal advice. No fees. 2-4 sentences. No emojis. " +
+  'Respond ONLY valid JSON: {"message":"...","next_stage":"name|phone|done"}';
+function sarahAddMsg(text,isUser){const msgs=document.getElementById('sarahMessages');const row=document.createElement('div');row.className='smsg'+(isUser?' user':'');if(!isUser){const av=document.createElement('div');av.className='smsg-av';av.innerHTML='<img src="'+SARAH_IMG_URL+'" alt="Sarah"/>';row.appendChild(av);}const b=document.createElement('div');b.className='smsg-bubble';b.textContent=text;row.appendChild(b);msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;}
+function sarahShowTyping(){const msgs=document.getElementById('sarahMessages');const row=document.createElement('div');row.className='sarah-typing';row.id='sarahTyping';row.innerHTML='<div class="smsg-av"><img src="'+SARAH_IMG_URL+'"/></div><div class="sarah-typing-bubble"><div class="sarah-dot"></div><div class="sarah-dot"></div><div class="sarah-dot"></div></div>';msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;}
+function sarahRemoveTyping(){const t=document.getElementById('sarahTyping');if(t)t.remove();}
+async function sarahSend(){const input=document.getElementById('sarahInput');const text=input.value.trim();if(!text)return;input.value='';input.style.height='auto';sarahAddMsg(text,true);sarahHistory.push({role:'user',content:text});if(sarahStage==='name')sarahCollected.name=text;if(sarahStage==='phone')sarahCollected.phone=text;sarahShowTyping();try{const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:SARAH_PROMPT+'\n\nCurrent stage: '+sarahStage,messages:sarahHistory})});sarahRemoveTyping();if(!res.ok){sarahAddMsg('Something went wrong. Please try again.',false);return;}const data=await res.json();const raw=data.content?.[0]?.text||'';let parsed;try{const m=raw.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);parsed=m?JSON.parse(m[0]):null;if(!parsed||!parsed.message)throw 0;}catch{parsed={message:raw||'Something went wrong.',next_stage:sarahStage};}sarahAddMsg(parsed.message,false);sarahHistory.push({role:'assistant',content:parsed.message});if(parsed.next_stage)sarahStage=parsed.next_stage;if(sarahStage==='done'&&sarahCollected.phone){const transcript=sarahHistory.map(m=>(m.role==='user'?'Visitor: ':'Sarah: ')+m.content).join('\n');fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:sarahCollected.name||'',phone:sarahCollected.phone||'',issue:sarahHistory[0]?.content?.substring(0,120)||'',transcript:transcript,source:window.location.pathname});}}catch(e){sarahRemoveTyping();sarahAddMsg('Network error.',false);}}
+const sarahTa=document.getElementById('sarahInput');if(sarahTa){sarahTa.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,70)+'px';});sarahTa.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sarahSend();}});}
+sarahAddMsg("Hi, I'm Sarah from eSolicitors.ie. Whatever has brought you here — tell me what happened and I'll make sure you get to the right solicitor.", false);
 </script>
 </body>
 </html>'
