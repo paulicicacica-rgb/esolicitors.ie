@@ -113,6 +113,7 @@ footer{background:#080f1e;padding:44px 5% 24px}
 .hero-form{animation:fadeUp .6s .2s ease both}
 @media(max-width:960px){.hero-inner{grid-template-columns:1fr;gap:36px}.scenario-grid{grid-template-columns:repeat(2,1fr)}.deadline-grid{grid-template-columns:repeat(2,1fr)}.stories-grid{grid-template-columns:1fr}.related-areas{grid-template-columns:repeat(2,1fr)}.scan-box{grid-template-columns:1fr}nav ul{display:none}}
 @media(max-width:560px){.scenario-grid{grid-template-columns:1fr}.deadline-grid{grid-template-columns:1fr}.related-areas{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}
+  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:14px!important}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long do I have to bring an unfair dismissal claim in Ireland?","acceptedAnswer":{"@type":"Answer","text":"You have six months from the date of dismissal to file a complaint with the Workplace Relations Commission. This can be extended to twelve months in exceptional circumstances. Missing this deadline means your claim will not be heard regardless of its merits."}},{"@type":"Question","name":"Do I need a solicitor for a WRC claim?","acceptedAnswer":{"@type":"Answer","text":"You are not required to have a solicitor but it is strongly advisable. Employers are almost always legally represented at WRC hearings. A solicitor will present your case professionally, handle cross-examination, and significantly improve your prospects of success."}}]}
@@ -146,53 +147,9 @@ footer{background:#080f1e;padding:44px 5% 24px}
         <li>Matched to your county within 24 hours</li>
       </ul>
     </div>
-    <div class="hero-form">
-      <div class="hero-form-title">Speak to an employment solicitor</div>
-      <p class="hero-form-sub">Free. Confidential. Matched to your county.</p>
-      <div class="form-field">
-        <label>Your Name</label>
-        <input type="text" placeholder="e.g. Maria Murphy">
-      </div>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label>Phone</label>
-          <input type="tel" placeholder="08x xxx xxxx">
-        </div>
-        <div class="form-field">
-          <label>County</label>
-          <select>
-            <option value="">Select...</option>
-            <option>Dublin</option><option>Cork</option><option>Galway</option>
-            <option>Limerick</option><option>Waterford</option><option>Kerry</option>
-            <option>Wexford</option><option>Wicklow</option><option>Kildare</option>
-            <option>Meath</option><option>Louth</option><option>Tipperary</option>
-            <option>Clare</option><option>Kilkenny</option><option>Donegal</option>
-            <option>Mayo</option><option>Sligo</option><option>Roscommon</option>
-            <option>Cavan</option><option>Monaghan</option><option>Offaly</option>
-            <option>Laois</option><option>Carlow</option><option>Longford</option>
-            <option>Leitrim</option><option>Westmeath</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-field">
-        <label>What happened</label>
-        <select>
-          <option value="">Select your situation...</option>
-          <option>Unfair dismissal</option>
-          <option>Constructive dismissal</option>
-          <option>Redundancy dispute</option>
-          <option>Discrimination at work</option>
-          <option>Workplace bullying</option>
-          <option>Maternity rights issue</option>
-          <option>Unpaid wages</option>
-          <option>Whistleblower penalised</option>
-          <option>Zero hours / casual contract</option>
-          <option>Other employment issue</option>
-        </select>
-      </div>
-      <button class="btn-submit" onclick="window.location='/chat.html'">Get Free Assessment</button>
-      <p class="form-note">Confidential. Free. No obligation to proceed.</p>
-    </div>
+    <div class="hero-form" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 32px 64px rgba(0,0,0,0.3);border-radius:14px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
+</div>
   </div>
 </section>
 <div class="stats-strip">

@@ -98,7 +98,8 @@ footer{background:#080f1e;padding:44px 5% 24px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-inner>*{animation:fadeUp .6s ease both}
 @media(max-width:960px){.hero-inner{grid-template-columns:1fr}.related-grid{grid-template-columns:repeat(2,1fr)}.scan-box{grid-template-columns:1fr}nav ul{display:none}}
-@media(max-width:560px){.related-grid{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}</style>
+@media(max-width:560px){.related-grid{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:14px!important}
+</style>
 </head>
 <body>
 <nav>
@@ -121,99 +122,9 @@ footer{background:#080f1e;padding:44px 5% 24px}
       <h1>Can't Pay Your<br><em>Mortgage</em> in Ireland.</h1>
       <p class="hero-intro">Falling behind on your mortgage in Ireland is frightening. But you have more rights than you probably think. Lenders cannot simply take your home — there is a process, and there are ways to protect yourself at every stage of it.</p>
     </div>
-    <div class="hero-form">
-      <div class="hero-form-title">Speak to a solicitor</div>
-      <div class="hero-form-sub">Free. No obligation. Matched to your county.</div>
-      <div class="form-field">
-        <label>What do you need help with?</label>
-        <select><option value=''>Select your situation</option><option>Can't pay mortgage</option><option>Bailiff / sheriff at door</option><option>Being sued for money</option><option>Car repossession</option></select>
-      </div>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label>Your name</label>
-          <input type="text" placeholder="First name">
-        </div>
-        <div class="form-field">
-          <label>County</label>
-          <select><option value=''>Select county</option><option>Dublin</option><option>Cork</option><option>Galway</option><option>Limerick</option><option>Waterford</option><option>Kildare</option><option>Meath</option><option>Wicklow</option><option>Louth</option><option>Wexford</option><option>Kerry</option><option>Clare</option><option>Tipperary</option><option>Kilkenny</option><option>Donegal</option><option>Mayo</option><option>Sligo</option><option>Roscommon</option><option>Leitrim</option><option>Cavan</option><option>Monaghan</option><option>Longford</option><option>Westmeath</option><option>Offaly</option><option>Laois</option><option>Carlow</option></select>
-        </div>
-      </div>
-      <div class="form-field">
-        <label>Phone number</label>
-        <input type="tel" placeholder="Your number">
-      </div>
-      <button class="btn-submit" onclick="window.location='/chat.html'">Find My Solicitor →</button>
-      <p class="form-note">Free matching. No obligation. A solicitor will contact you directly.</p>
-    </div>
-  </div>
+    <div class="hero-form" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 32px 64px rgba(0,0,0,0.3);border-radius:14px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
 </div>
-
-<div class="page-wrap">
-  <section class="section">
-    <div class="section-label">Real Story</div>
-    <h2 class="section-title">What happened to Declan</h2>
-    <div class="story-opener">
-      <div class="story-quote">"I lost my job in March. By June I had missed three payments. The bank started sending letters I was too scared to open."</div>
-      <div class="story-attr">— Declan, Portlaoise, Co. Laois</div>
-    </div>
-    <p class="story-body-text">Declan had been paying his mortgage for eleven years without a problem. When his employer closed, he found himself in arrears within months. Letters from the bank escalated quickly. His wife was terrified they would lose the house. A neighbour told him to get a solicitor before things went further.</p>
-  </section>
-</div>
-
-<div style="background:var(--cream-dark);padding:0 5%">
-  <div style="max-width:540px;margin:0 auto;padding:40px 0">
-  </div>
-</div>
-
-<div class="page-wrap">
-  <section class="section">
-    <div class="section-label">The Law</div>
-    <h2 class="section-title">What lenders can and cannot do under Irish law</h2>
-    <p class='section-body'>Under the Central Bank's Code of Conduct on Mortgage Arrears (CCMA), lenders are legally required to follow a structured process before they can begin any legal action against you. This process is called the Mortgage Arrears Resolution Process (MARP).</p><p class='section-body'>Before a lender can apply to court to repossess your home, they must engage with you through MARP, consider all alternative repayment arrangements, and wait a minimum period. Repossession proceedings can only begin after this process has been exhausted. A lender who skips these steps can have proceedings struck out by the courts.</p><p class='section-body'>Alternative arrangements available under MARP include a temporary interest-only period, a payment moratorium, an extension of the mortgage term, or a split mortgage arrangement. You have the right to an independent appeals process if you are unhappy with a lender's decision.</p>
-    <div class="warning-box">
-      <div class="warning-box-title">⚠ Act early — your options narrow over time</div>
-      <p>In debt and financial matters, the longer you wait the fewer options you have. Getting legal advice early — before a court date, before a judgment is registered, before enforcement begins — gives you significantly more room to negotiate and protect yourself.</p>
-    </div>
-  </section>
-  <section class="section" style="padding-top:0">
-    <div class="section-label">What You're Facing</div>
-    <h2 class="section-title">The real consequences</h2>
-    <div class="consequences-list">
-      <div class="consequence-item">
-        <div class="consequence-icon">🏠</div>
-        <div>
-          <div class="consequence-title">MARP process must be followed</div>
-          <div class="consequence-desc">Your lender cannot go straight to court. They must engage with you through the Mortgage Arrears Resolution Process first — this can take months and gives you time.</div>
-        </div>
-      </div>
-<div class="consequence-item">
-        <div class="consequence-icon">⚖️</div>
-        <div>
-          <div class="consequence-title">Repossession is not immediate</div>
-          <div class="consequence-desc">Even if court proceedings begin, there are further stages before a repossession order is granted. The process from first missed payment to losing your home typically takes years.</div>
-        </div>
-      </div>
-<div class="consequence-item">
-        <div class="consequence-icon">💰</div>
-        <div>
-          <div class="consequence-title">Your credit record</div>
-          <div class="consequence-desc">Mortgage arrears are recorded on your credit file through the Central Credit Register. This affects future borrowing. A solicitor can sometimes negotiate how arrears are reported.</div>
-        </div>
-      </div>
-<div class="consequence-item">
-        <div class="consequence-icon">🚗</div>
-        <div>
-          <div class="consequence-title">Personal Insolvency</div>
-          <div class="consequence-desc">If arrears are severe and unmanageable, a Personal Insolvency Arrangement (PIA) through a Personal Insolvency Practitioner may protect your home while restructuring debt.</div>
-        </div>
-      </div>
-<div class="consequence-item">
-        <div class="consequence-icon">📋</div>
-        <div>
-          <div class="consequence-title">Free supports available</div>
-          <div class="consequence-desc">MABS (Money Advice and Budgeting Service) provides free independent advice on mortgage arrears. A solicitor is essential once legal proceedings begin.</div>
-        </div>
-      </div>
 
     </div>
   </section>

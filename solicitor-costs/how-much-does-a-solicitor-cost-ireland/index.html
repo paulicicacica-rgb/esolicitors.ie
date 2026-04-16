@@ -98,7 +98,8 @@ footer{background:#080f1e;padding:44px 5% 24px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-inner>*{animation:fadeUp .6s ease both}
 @media(max-width:960px){.hero-inner{grid-template-columns:1fr}.related-grid{grid-template-columns:repeat(2,1fr)}.scan-box{grid-template-columns:1fr}nav ul{display:none}}
-@media(max-width:560px){.related-grid{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}</style>
+@media(max-width:560px){.related-grid{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:14px!important}
+</style>
 </head>
 <body>
 <nav>
@@ -121,74 +122,9 @@ footer{background:#080f1e;padding:44px 5% 24px}
       <h1>How Much Does a<br><em>Solicitor Cost</em> in Ireland?</h1>
       <p class="hero-intro">Solicitor fees in Ireland vary widely depending on the type of work, the complexity of your case, and the firm you choose. This guide gives you real figures across all practice areas so you know what to expect before you pick up the phone.</p>
     </div>
-    <div class="hero-form">
-      <div class="hero-form-title">Speak to a solicitor</div>
-      <div class="hero-form-sub">Free. No obligation. Matched to your county.</div>
-      <div class="form-field">
-        <label>What do you need help with?</label>
-        <select><option value=''>Select practice area</option><option>Buying / selling property</option><option>Divorce or separation</option><option>Personal injury</option><option>Employment dispute</option><option>Criminal charge</option><option>Debt / financial</option></select>
-      </div>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label>Your name</label>
-          <input type="text" placeholder="First name">
-        </div>
-        <div class="form-field">
-          <label>County</label>
-          <select><option value=''>Select county</option><option>Dublin</option><option>Cork</option><option>Galway</option><option>Limerick</option><option>Waterford</option><option>Kildare</option><option>Meath</option><option>Wicklow</option><option>Louth</option><option>Wexford</option><option>Kerry</option><option>Clare</option><option>Tipperary</option><option>Kilkenny</option><option>Donegal</option><option>Mayo</option><option>Sligo</option><option>Roscommon</option><option>Leitrim</option><option>Cavan</option><option>Monaghan</option><option>Longford</option><option>Westmeath</option><option>Offaly</option><option>Laois</option><option>Carlow</option></select>
-        </div>
-      </div>
-      <div class="form-field">
-        <label>Phone number</label>
-        <input type="tel" placeholder="Your number">
-      </div>
-      <button class="btn-submit" onclick="window.location='/chat.html'">Find My Solicitor →</button>
-      <p class="form-note">Free matching. No obligation. A solicitor will contact you directly.</p>
-    </div>
-  </div>
+    <div class="hero-form" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 32px 64px rgba(0,0,0,0.3);border-radius:14px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
 </div>
-
-<div class="page-wrap">
-  <section class="section">
-    <div class="section-label">Real Story</div>
-    <h2 class="section-title">What happened to Patricia</h2>
-    <div class="story-opener">
-      <div class="story-quote">"I was terrified to even call a solicitor because I assumed it would cost thousands just to have a conversation. It turned out my entire case was handled for a fixed fee of €1,200."</div>
-      <div class="story-attr">— Patricia, Galway City</div>
-    </div>
-    <p class="story-body-text">Patricia had a dispute with a builder who had left her extension unfinished and walked off the job with €8,000 of her money. She spent two weeks paralysed by the fear of what a solicitor would cost. When she finally called, she was told the initial consultation was free and the case would be handled for a fixed fee. She recovered the full €8,000.</p>
-  </section>
-</div>
-
-<div style="background:var(--cream-dark);padding:0 5%">
-  <div style="max-width:540px;margin:0 auto;padding:40px 0">
-  </div>
-</div>
-
-<div class="page-wrap">
-  <section class="section">
-    <div class="section-label">Real Figures</div>
-    <h2 class="section-title">What solicitors actually charge in Ireland</h2>
-    <table class="cost-table">
-      <thead><tr><th>Service</th><th>Typical Cost</th><th>Notes</th></tr></thead>
-      <tbody><tr><td>Buying or selling a house</td><td class='price'>€1,000 – €2,500</td><td>Fixed fee, plus VAT and outlays</td></tr><tr><td>Divorce / separation</td><td class='price'>€2,000 – €10,000+</td><td>Depends on complexity and dispute level</td></tr><tr><td>Personal injury</td><td class='price'>No win no fee</td><td>Solicitor takes ~25% of settlement</td></tr><tr><td>Unfair dismissal</td><td class='price'>€1,500 – €5,000</td><td>Fixed or hourly depending on outcome</td></tr><tr><td>Making a will</td><td class='price'>€150 – €400</td><td>Simple wills; more for complex estates</td></tr><tr><td>Criminal defence</td><td class='price'>€1,500 – €5,000+</td><td>Depends on court level and case length</td></tr><tr><td>Debt / civil proceedings</td><td class='price'>€500 – €2,500</td><td>Negotiation vs. court hearing varies</td></tr><tr><td>Immigration</td><td class='price'>€500 – €2,000</td><td>Depends on application type</td></tr></tbody></table>
-    <div style="margin-top:32px">
-      <div class="info-box">
-        <div class="info-box-title">Hourly rates in Ireland</div>
-        <p>Most solicitors in Ireland charge between €200 and €450 per hour depending on experience and location. Dublin rates tend to be higher than regional rates. Always ask for a costs notice before agreeing to proceed — solicitors are legally required to provide one.</p>
-      </div>
-<div class="info-box">
-        <div class="info-box-title">Fixed fees vs. hourly billing</div>
-        <p>For straightforward work like conveyancing, wills, and some family law matters, many solicitors offer fixed fees. For contested matters — disputes, court cases, negotiations — hourly billing is more common. Always clarify upfront which applies to your case.</p>
-      </div>
-<div class="info-box">
-        <div class="info-box-title">No win no fee</div>
-        <p>Personal injury cases in Ireland are almost always handled on a no win no fee basis. The solicitor takes a percentage of your settlement — typically around 25% — only if you win. You pay nothing if the case is unsuccessful. This does not apply to most other areas of law.</p>
-      </div>
-<div class="info-box">
-        <div class="info-box-title">Legal aid</div>
-        <p>If you cannot afford a solicitor, you may qualify for civil legal aid through the Legal Aid Board. Eligibility is means-tested. Criminal legal aid is available in criminal cases where there is a risk of imprisonment. Apply through your nearest Law Centre.</p>
-      </div>
 
     </div>
   </section>

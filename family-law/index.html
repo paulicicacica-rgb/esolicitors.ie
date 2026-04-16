@@ -102,6 +102,7 @@ footer{background:#080f1e;padding:44px 5% 24px}
 .hero-form{animation:fadeUp .6s .2s ease both}
 @media(max-width:960px){.hero-inner{grid-template-columns:1fr;gap:36px}.scenario-grid{grid-template-columns:repeat(2,1fr)}.stories-grid{grid-template-columns:1fr}.related-areas{grid-template-columns:repeat(2,1fr)}.scan-box{grid-template-columns:1fr}nav ul{display:none}}
 @media(max-width:560px){.scenario-grid{grid-template-columns:1fr}.related-areas{grid-template-columns:1fr}.form-grid-2{grid-template-columns:1fr}}
+  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:14px!important}
 </style>
 </head>
 <body>
@@ -133,52 +134,9 @@ footer{background:#080f1e;padding:44px 5% 24px}
         <li>Maintenance, the family home, cohabitation rights</li>
       </ul>
     </div>
-    <div class="hero-form">
-      <div class="hero-form-title">Speak to a family law solicitor</div>
-      <p class="hero-form-sub">Free. Confidential. Matched to your county.</p>
-      <div class="form-field">
-        <label>Your Name</label>
-        <input type="text" placeholder="e.g. Ciara Murphy">
-      </div>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label>Phone</label>
-          <input type="tel" placeholder="08x xxx xxxx">
-        </div>
-        <div class="form-field">
-          <label>County</label>
-          <select>
-            <option value="">Select...</option>
-            <option>Dublin</option><option>Cork</option><option>Galway</option>
-            <option>Limerick</option><option>Waterford</option><option>Kerry</option>
-            <option>Wexford</option><option>Wicklow</option><option>Kildare</option>
-            <option>Meath</option><option>Louth</option><option>Tipperary</option>
-            <option>Clare</option><option>Kilkenny</option><option>Donegal</option>
-            <option>Mayo</option><option>Sligo</option><option>Roscommon</option>
-            <option>Cavan</option><option>Monaghan</option><option>Offaly</option>
-            <option>Laois</option><option>Carlow</option><option>Longford</option>
-            <option>Leitrim</option><option>Westmeath</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-field">
-        <label>What do you need help with</label>
-        <select>
-          <option value="">Select your situation...</option>
-          <option>Divorce</option>
-          <option>Judicial separation</option>
-          <option>Child custody or access</option>
-          <option>Domestic violence order</option>
-          <option>Maintenance</option>
-          <option>Family home dispute</option>
-          <option>Cohabitation rights</option>
-          <option>Grandparents access</option>
-          <option>Other family law matter</option>
-        </select>
-      </div>
-      <button class="btn-submit" onclick="window.location='/chat.html'">Get Free Assessment</button>
-      <p class="form-note">Confidential. Free. No obligation to proceed.</p>
-    </div>
+    <div class="hero-form" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 32px 64px rgba(0,0,0,0.3);border-radius:14px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
+</div>
   </div>
 </section>
 

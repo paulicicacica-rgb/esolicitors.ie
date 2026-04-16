@@ -879,6 +879,7 @@
     .related-grid { grid-template-columns: 1fr; }
     .warning-box { flex-direction: column; gap: 12px; }
   }
+  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:14px!important}
 </style>
 
 <!-- FAQ Schema -->
@@ -970,37 +971,9 @@
         <li>2-year deadline — the sooner you act, the better</li>
       </ul>
     </div>
-    <div class="hero-form">
-      <div class="hero-form-title">Is your claim valid?</div>
-      <p class="hero-form-sub">Tell us briefly what happened — free, no obligation.</p>
-      <div class="form-field">
-        <label>Your Name</label>
-        <input type="text" placeholder="e.g. John Murphy">
-      </div>
-      <div class="form-grid-2">
-        <div class="form-field">
-          <label>Phone</label>
-          <input type="tel" placeholder="08x xxx xxxx">
-        </div>
-        <div class="form-field">
-          <label>County</label>
-          <select>
-            <option value="">Select...</option>
-            <option>Dublin</option><option>Cork</option><option>Galway</option>
-            <option>Limerick</option><option>Waterford</option><option>Kerry</option>
-            <option>Wexford</option><option>Wicklow</option><option>Kildare</option>
-            <option>Meath</option><option>Louth</option><option>Tipperary</option>
-            <option>Clare</option><option>Kilkenny</option><option>Westmeath</option>
-            <option>Donegal</option><option>Mayo</option><option>Sligo</option>
-            <option>Roscommon</option><option>Cavan</option><option>Monaghan</option>
-            <option>Offaly</option><option>Laois</option><option>Carlow</option>
-            <option>Longford</option><option>Leitrim</option>
-          </select>
-        </div>
-      </div>
-      <button class="btn-submit" onclick="window.location='/chat.html'">Get Free Assessment →</button>
-      <p class="form-note">🔒 Confidential. Free. No obligation to proceed.</p>
-    </div>
+    <div class="hero-form" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 32px 64px rgba(0,0,0,0.3);border-radius:14px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
+</div>
   </div>
 </section>
 
