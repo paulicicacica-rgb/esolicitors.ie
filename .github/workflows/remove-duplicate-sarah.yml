@@ -1,0 +1,22 @@
+name: Remove Duplicate Sarah Widget
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Remove duplicate sarah.js
+        run: python3 remove_duplicate_sarah.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "fix: remove duplicate sarah.js from pages with own chat widget"
+          git push
