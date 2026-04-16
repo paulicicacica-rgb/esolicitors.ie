@@ -1,0 +1,22 @@
+name: Find Hub Paths
+
+on:
+  workflow_dispatch:
+
+jobs:
+  find-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Find hub pages
+        run: |
+          python3 - << 'PYEOF'
+          import glob
+          for pattern in ["./employment-law*", "./family-law*", "./personal-injury*", "./criminal-law*"]:
+              files = glob.glob(pattern + "/**", recursive=True)
+              htmls = [f for f in files if f.endswith('.html') and f.count('/') <= 3]
+              for h in sorted(htmls)[:3]:
+                  print(h)
+          PYEOF
