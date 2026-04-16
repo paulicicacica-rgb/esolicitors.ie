@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About eSolicitors.ie — Ireland's Free Solicitor Matching Service</title>
+<meta name="description" content="eSolicitors.ie connects people across Ireland with qualified solicitors in their county. Free, confidential, no obligation. Find out who we are and how we work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0c1f3d;--navy-mid:#162d52;--gold:#c8922a;--gold-light:#e8b04a;--cream:#f7f3ee;--cream-dark:#ede7dc;--white:#fff;--text-dark:#0c1f3d;--text-mid:#4a5568;--text-light:#8896a8;--border:#e8e2d9}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(200,146,42,0.2);padding:0 5%;height:62px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:6px;font-weight:600!important}
+.hero{background:var(--navy);padding:64px 5%;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,146,42,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.8vw,3rem);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;font-weight:300}
+.page-wrap{max-width:800px;margin:0 auto;padding:0 5%}
+.section{padding:56px 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.2}
+.body-text{font-size:.95rem;color:var(--text-mid);line-height:1.85;font-weight:300}
+.body-text p{margin-bottom:16px}
+.body-text p:last-child{margin-bottom:0}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;text-align:center}
+.info-card-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--navy);margin-bottom:6px}
+.info-card-label{font-size:.78rem;color:var(--text-light);font-weight:500}
+.contact-block{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-top:24px}
+.contact-row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.contact-row:last-child{border-bottom:none}
+.contact-label{font-size:.78rem;font-weight:700;color:var(--navy);min-width:100px;padding-top:2px}
+.contact-value{font-size:.88rem;color:var(--text-mid);line-height:1.6}
+.contact-value a{color:var(--gold);text-decoration:none}
+.cta-section{background:var(--navy);padding:60px 5%;text-align:center;margin-top:0}
+.cta-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.cta-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:14px;line-height:1.2}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,0.6);margin-bottom:32px;line-height:1.7}
+.btn-gold{display:inline-block;padding:14px 36px;background:var(--gold);color:var(--navy);border-radius:8px;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .2s}
+.btn-gold:hover{background:var(--gold-light)}
+footer{background:#080f1e;padding:36px 5%;font-family:'DM Sans',sans-serif}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;margin-bottom:28px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none}
+.footer-logo span{color:var(--gold)}
+.footer-desc{font-size:.8rem;color:rgba(255,255,255,0.3);margin-top:8px;max-width:240px;line-height:1.6}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:.83rem;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.footer-bottom span{font-size:.75rem;color:rgba(255,255,255,0.25)}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">e<span>Solicitors</span>.ie</a>
+  <ul class="nav-links">
+    <li><a href="/personal-injury/">Personal Injury</a></li>
+    <li><a href="/employment-law/">Employment</a></li>
+    <li><a href="/property-law/">Property</a></li>
+    <li><a href="/family-law/">Family Law</a></li>
+    <li><a href="/chat.html" class="nav-cta">Get Matched</a></li>
+  </ul>
+</nav>
 
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">About Us</div>
+    <h1>We connect people<br>with the right solicitor.<br><em>Free. Always.</em></h1>
+    <p class="hero-sub">eSolicitors.ie is an Irish solicitor matching service. We help people across all 26 counties find qualified legal help — without the confusion, the cold calls, or the cost.</p>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <section class="section">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">A free matching service for Irish people who need legal help</h2>
+    <div class="body-text">
+      <p>eSolicitors.ie was built around a simple idea: finding a good solicitor in Ireland should not be complicated, expensive, or intimidating. Most people facing a legal problem do not know where to start. They search online, find a list of firms, and have no way of knowing who is right for their situation.</p>
+      <p>We fix that. You describe your situation — in plain English, no legal terms needed — and we match you with a qualified Irish solicitor in your county who specialises in exactly your type of case. The first consultation is always free. There is no obligation to proceed.</p>
+      <p>We cover all 26 counties and eight practice areas including personal injury, employment law, property law, family law, criminal law, immigration, wills and probate, and debt.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-num">26</div><div class="info-card-label">Counties Covered</div></div>
+      <div class="info-card"><div class="info-card-num">8</div><div class="info-card-label">Practice Areas</div></div>
+      <div class="info-card"><div class="info-card-num">€0</div><div class="info-card-label">Cost to You</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three steps. No forms. No awkward cold calls.</h2>
+    <div class="body-text">
+      <p><strong>Step 1 — Tell us what happened.</strong> Describe your situation to Sarah, our intake assistant. Plain language is fine. You do not need to know any legal terms.</p>
+      <p><strong>Step 2 — We match you.</strong> Sarah identifies the right solicitor in your county who handles exactly your type of case and collects your contact details.</p>
+      <p><strong>Step 3 — Your solicitor calls you back.</strong> A qualified Irish solicitor contacts you directly. The first consultation is free. There is no obligation to proceed or to instruct them.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">How We Make Money</div>
+    <h2 class="section-title">Solicitors pay us. You never do.</h2>
+    <div class="body-text">
+      <p>eSolicitors.ie is free to use for the public. We are funded by the solicitors and legal practices we refer cases to. When a referral leads to a case being instructed, the solicitor pays us a referral fee. You are never charged anything, at any point.</p>
+      <p>This model means our interests are aligned with yours — we only get paid when we make a successful match. We have no reason to match you with the wrong solicitor.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Legal Information</div>
+    <h2 class="section-title">We are a referral service, not a law firm</h2>
+    <div class="body-text">
+      <p>eSolicitors.ie is a referral and information service. We are not a law firm and we do not provide legal advice. Nothing on this website constitutes legal advice and no solicitor-client relationship is created by using this service.</p>
+      <p>All solicitors we refer to are independently qualified and regulated by the Law Society of Ireland. We do not guarantee any particular outcome for your case.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-block">
+      <div class="contact-row">
+        <span class="contact-label">Company</span>
+        <span class="contact-value">eSolicitors.ie Ltd</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Address</span>
+        <span class="contact-value">3 The Turnpike, Ballymun, Dublin 11, Ireland</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value"><a href="tel:+35316579800">+353 (0)1 657 9800</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:info@esolicitors.ie">info@esolicitors.ie</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Hours</span>
+        <span class="contact-value">Monday – Friday, 9:00am – 5:30pm</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="cta-section">
+  <div style="max-width:600px;margin:0 auto">
+    <div class="cta-label">Free Solicitor Matching</div>
+    <h2 class="cta-title">Need legal help?<br>Tell Sarah what happened.</h2>
+    <p class="cta-sub">Free, confidential, no obligation. Matched to your county.</p>
+    <a href="/chat.html" class="btn-gold">Talk to Sarah — Free →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/" class="footer-logo">e<span>Solicitors</span>.ie</a>
+        <p class="footer-desc">Ireland's free solicitor matching service. Qualified solicitors across all 26 counties.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="/personal-injury/">Personal Injury</a></li>
+          <li><a href="/employment-law/">Employment Law</a></li>
+          <li><a href="/property-law/">Property Law</a></li>
+          <li><a href="/family-law/">Family Law</a></li>
+          <li><a href="/criminal-law/">Criminal Law</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>eSolicitors</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 eSolicitors.ie Ltd. All rights reserved.</span>
+      <span style="max-width:480px">eSolicitors.ie is a referral service, not a law firm. We do not provide legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
