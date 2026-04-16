@@ -29,6 +29,8 @@ SARAH_CSS = "  #es-inline-wrap{margin:0!important;height:480px!important;border-
 for filepath in sorted(files):
     if '/api/' in filepath or '.github' in filepath:
         continue
+    if filepath in ['./index.html', './chat.html']:
+        continue
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
