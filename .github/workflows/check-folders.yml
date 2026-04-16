@@ -1,0 +1,28 @@
+name: Check Story Folders
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: List story folders
+        run: |
+          python3 - << 'PYEOF'
+          import glob
+
+          # Check personal injury subfolders
+          folders = glob.glob("./personal-injury/*/*/index.html")
+          print(f"Personal injury story pages: {len(folders)}")
+          for f in sorted(folders)[:20]:
+              print(f"  {f}")
+
+          folders2 = glob.glob("./employment-law/*/*/index.html")
+          print(f"\nEmployment law story pages: {len(folders2)}")
+          for f in sorted(folders2)[:10]:
+              print(f"  {f}")
+          PYEOF
