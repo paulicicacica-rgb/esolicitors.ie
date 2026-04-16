@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Derek was attacked outside a Dublin pub and suffered a broken nose and anxiety. Read how he won compensation through both a civil claim and the Criminal Injuries Tribunal.">
+    <title>Assault Compensation Dublin: Derek's Civil Claim & Criminal Injuries Award</title>
+    <style>
+        :root {
+            --navy: #0c1f3d;
+            --gold: #c8922a;
+            --cream: #f7f3ee;
+            --cream-dark: #ede7dc;
+            --white: #fff;
+            --text-mid: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-mid);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--navy);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--cream);
+            padding: 15px 5%;
+            font-size: 13px;
+            max-width: 100%;
+        }
+
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--text-mid);
+            margin: 0 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2f4d 100%);
+            color: var(--white);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        .story-section {
+            margin-bottom: 50px;
+        }
+
+        .story-section h2 {
+            color: var(--navy);
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .story-section p {
+            margin-bottom: 18px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-mid);
+        }
+
+        .story-section strong {
+            color: var(--navy);
+        }
+
+        /* Law section */
+        .law-box {
+            background-color: var(--cream);
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .law-box h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .law-box p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .law-box ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .law-box li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        /* Compensation section */
+        .compensation-box {
+            background-color: #f0f4f8;
+            border-left: 5px solid var(--navy);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        .compensation-box h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .compensation-box p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .comp-list {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .comp-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comp-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .comp-label {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .comp-value {
+            color: var(--gold);
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        /* Warning box */
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 4px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .warning-box p {
+            color: #856404;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+        }
+
+        /* Similar cases */
+        .similar-section {
+            margin-top: 50px;
+        }
+
+        .similar-section h2 {
+            color: var(--navy);
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .case-card {
+            background-color: var(--cream);
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 25px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 4px 12px rgba(12, 31, 61, 0.1);
+        }
+
+        .case-card h4 {
+            color: var(--navy);
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .case-card .location {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .case-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .case-card .award {
+            background-color: var(--white);
+            padding: 12px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 15px;
+        }
+
+        /* Sarah chat */
+        .sarah-section {
+            background-color: var(--cream-dark);
+            padding: 40px 5%;
+        }
+
+        .sarah-inner {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 40px 5%;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">eSolicitors.ie</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/personal-injury/">Personal Injury</a></li>
+            <li><a href="/personal-injury/assault/">Assault Claims</a></li>
+            <li><a href="/contact/">Get Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="/personal-injury/">Personal Injury</a>
+        <span>›</span>
+        <a href="/personal-injury/assault/">Victim of an Assault</a>
+        <span>›</span>
+        <span>Derek's Story</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>How Derek Won Assault Compensation in Dublin</h1>
+        <p>A broken nose, anxiety, and justice through civil and criminal compensation</p>
+        <p style="font-size: 16px; margin-top: 20px;">Dublin</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Story Section -->
+        <section class="story-section">
+            <h2>What Happened to Derek</h2>
+            
+            <p>It was a Friday night in November when Derek, a 34-year-old from South Dublin, popped into his local pub for a quiet drink with a friend. He'd had a long week at work and just wanted to unwind. The pub was busy but friendly, the kind of place where he'd been going for years. Nobody could have predicted what was about to happen.</p>
+
+            <p>As Derek was leaving at around 10:30 p.m., a man he'd never seen before approached him in the car park. Without any warning or provocation, the stranger threw a punch directly at Derek's face. The blow was sudden and brutal. Derek fell to the ground, blood streaming from his nose, completely stunned by what had just happened. Other people nearby quickly intervened and called gardaí, but the damage was already done.</p>
+
+            <p>At the hospital, Derek was told his nose was broken. The doctors said it would need careful monitoring and likely would require surgery to set properly. But the physical injury wasn't what bothered Derek most over the coming weeks. He developed severe anxiety. He couldn't sleep properly. He felt unsafe going out, even during the day. Going back to the pub where it happened was completely out of the question. He kept replaying the moment in his head, wondering if he'd done something wrong, even though he knew he hadn't.</p>
+
+            <p>The gardaí arrested the attacker the following day. He was charged and eventually pleaded guilty to assault causing bodily harm. But Derek knew that the criminal case, while important for justice, wouldn't cover his medical costs, lost earnings, or the psychological impact he was suffering. That's when he decided to explore his civil rights and contacted a solicitor about compensation.</p>
+        </section>
+
+        <!-- Law Section -->
+        <section class="law-box">
+            <h3>Your Legal Rights When You've Been Assaulted</h3>
+            <p>If you've been the victim of an assault in Ireland, you have two separate routes to compensation:</p>
+            <ul>
+                <li><strong>Civil claim:</strong> You can sue the person who assaulted you for damages, even if they're prosecuted criminally. This is your private legal action to recover money for your injuries and losses.</li>
+                <li><strong>Criminal Injuries Compensation Tribunal:</strong> This is a state scheme that awards compensation to innocent victims of violent crime, regardless of whether the attacker is caught or prosecuted. You don't need to win a civil case first.</li>
+            </ul>
+            <p>In Derek's case, he pursued both routes. The attacker was identified and charged, which made the civil claim straightforward. He also applied to the Criminal Injuries Compensation Tribunal, which recognises the state's responsibility to support victims when violent crime occurs.</p>
+            <p>You don't need to have injuries that require hospital admission. Compensation is available for physical injuries (broken bones, cuts, bruises), psychological injuries (trauma, anxiety, PTSD), and losses (medical costs, lost wages, therapy).</p>
+        </section>
+
+        <!-- What They Were Entitled To -->
+        <section class="story-section">
+            <h2>What Derek's Compensation Included</h2>
+            <p>After his solicitor gathered all the evidence—medical reports, proof of his anxiety diagnosis, receipts for private physiotherapy, records of lost work days—Derek's claim was valued. The final settlement and Criminal Injuries Tribunal award covered:</p>
+        </section>
+
+        <section class="compensation-box">
+            <h3>Derek's Compensation Breakdown</h3>
+            <div class="comp-list">
+                <div class="comp-item">
+                    <div class="comp-label">Physical injury (broken nose, pain & suffering)</div>
+                    <div class="comp-value">€8,500</div>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-label">Psychological injury (anxiety diagnosis & ongoing impact)</div>

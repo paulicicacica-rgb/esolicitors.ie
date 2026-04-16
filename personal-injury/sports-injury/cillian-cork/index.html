@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Cillian from Cork was injured on a poorly maintained GAA pitch. Read how he won compensation for a negligence claim — and how you can too if you're injured playing sport due to unsafe facilities.">
+	<title>GAA Pitch Injury Claim | Cillian's Story from Cork | eSolicitors.ie</title>
+	<style>
+		:root {
+			--navy: #0c1f3d;
+			--gold: #c8922a;
+			--cream: #f7f3ee;
+			--cream-dark: #ede7dc;
+			--white: #fff;
+			--text-mid: #4a5568;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html, body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			color: var(--navy);
+			line-height: 1.6;
+			background-color: var(--white);
+		}
+
+		/* Navigation */
+		nav {
+			background-color: var(--navy);
+			padding: 20px 0;
+			position: sticky;
+			top: 0;
+			z-index: 100;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		nav > div {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 5%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		nav a {
+			color: var(--white);
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 18px;
+		}
+
+		nav a:hover {
+			color: var(--gold);
+		}
+
+		nav .nav-links {
+			display: flex;
+			gap: 30px;
+			list-style: none;
+		}
+
+		nav .nav-links a {
+			font-size: 14px;
+			font-weight: 500;
+		}
+
+		/* Breadcrumb */
+		.breadcrumb {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px 5%;
+			font-size: 14px;
+			color: var(--text-mid);
+		}
+
+		.breadcrumb a {
+			color: var(--gold);
+			text-decoration: none;
+		}
+
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+
+		/* Hero Section */
+		.hero {
+			background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+			color: var(--white);
+			padding: 60px 5%;
+			text-align: center;
+		}
+
+		.hero > div {
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		.hero h1 {
+			font-size: 42px;
+			font-weight: 700;
+			margin-bottom: 20px;
+			line-height: 1.2;
+		}
+
+		.hero p {
+			font-size: 18px;
+			margin-bottom: 10px;
+			opacity: 0.95;
+		}
+
+		/* Main Content */
+		.main {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 40px 5%;
+		}
+
+		section {
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			font-size: 28px;
+			font-weight: 700;
+			color: var(--navy);
+			margin-bottom: 25px;
+			border-bottom: 3px solid var(--gold);
+			padding-bottom: 15px;
+		}
+
+		h3 {
+			font-size: 20px;
+			font-weight: 600;
+			color: var(--navy);
+			margin-top: 20px;
+			margin-bottom: 15px;
+		}
+
+		p {
+			font-size: 16px;
+			color: var(--text-mid);
+			margin-bottom: 18px;
+			line-height: 1.8;
+		}
+
+		/* Story paragraphs */
+		.story p {
+			font-size: 17px;
+		}
+
+		/* Warning Box */
+		.warning-box {
+			background-color: #fef5e7;
+			border-left: 5px solid #f39c12;
+			padding: 20px;
+			margin: 40px 0;
+			border-radius: 4px;
+		}
+
+		.warning-box h3 {
+			color: #d68910;
+			margin-top: 0;
+		}
+
+		.warning-box p {
+			margin-bottom: 0;
+			font-weight: 500;
+		}
+
+		/* Similar Cases */
+		.similar-cases {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 25px;
+			margin-top: 30px;
+		}
+
+		.case-card {
+			background-color: var(--cream);
+			padding: 25px;
+			border-radius: 6px;
+			border-top: 4px solid var(--gold);
+		}
+
+		.case-card h4 {
+			color: var(--navy);
+			font-size: 16px;
+			font-weight: 700;
+			margin-bottom: 12px;
+		}
+
+		.case-card p {
+			font-size: 14px;
+			color: var(--text-mid);
+			margin-bottom: 8px;
+		}
+
+		.case-result {
+			font-weight: 600;
+			color: var(--gold);
+			font-size: 14px;
+		}
+
+		/* Law Section */
+		.law-box {
+			background-color: var(--cream);
+			padding: 30px;
+			border-left: 5px solid var(--navy);
+			margin: 30px 0;
+			border-radius: 4px;
+		}
+
+		.compensation-list {
+			list-style: none;
+			padding: 0;
+			margin: 20px 0;
+		}
+
+		.compensation-list li {
+			padding: 12px 0;
+			padding-left: 30px;
+			position: relative;
+			font-size: 16px;
+			color: var(--text-mid);
+		}
+
+		.compensation-list li:before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: var(--gold);
+			font-weight: 700;
+			font-size: 18px;
+		}
+
+		/* Sarah Chat */
+		.sarah-section {
+			background: var(--cream-dark);
+			padding: 0 5%;
+		}
+
+		.sarah-container {
+			max-width: 540px;
+			margin: 0 auto;
+			padding: 40px 0;
+		}
+
+		/* Footer */
+		footer {
+			background-color: var(--navy);
+			color: var(--white);
+			padding: 50px 5%;
+			margin-top: 60px;
+		}
+
+		footer > div {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 40px;
+		}
+
+		footer h4 {
+			font-size: 16px;
+			font-weight: 700;
+			margin-bottom: 20px;
+			color: var(--gold);
+		}
+
+		footer ul {
+			list-style: none;
+		}
+
+		footer li {
+			margin-bottom: 12px;
+		}
+
+		footer a {
+			color: var(--white);
+			text-decoration: none;
+			font-size: 14px;
+		}
+
+		footer a:hover {
+			color: var(--gold);
+		}
+
+		.footer-bottom {
+			text-align: center;
+			padding-top: 30px;
+			margin-top: 30px;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+			font-size: 14px;
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 32px;
+			}
+
+			nav .nav-links {
+				gap: 15px;
+			}
+
+			h2 {
+				font-size: 24px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Navigation -->
+	<nav>
+		<div>
+			<a href="/">eSolicitors.ie</a>
+			<ul class="nav-links">
+				<li><a href="/">Home</a></li>
+				<li><a href="/personal-injury/">Personal Injury</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/contact/">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Breadcrumb -->
+	<div class="breadcrumb">
+		<a href="/">Home</a> > <a href="/personal-injury/">Personal Injury</a> > <a href="/personal-injury/sports-injury/">Sports Injury Due to Negligence</a> > Cillian's Story
+	</div>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div>
+			<h1>Injured on a GAA Pitch? How Cillian Won Compensation for a Negligent Club</h1>
+			<p><strong>Cork | Ankle Fracture | Poorly Maintained Pitch</strong></p>
+		</div>
+	</section>
+
+	<!-- Main Content -->
+	<div class="main">
+
+		<!-- The Story -->
+		<section class="story">
+			<h2>How It Happened</h2>
+			<p>
+				Cillian had been playing GAA for nearly fifteen years. He was fit, careful, and knew the game inside out. Every Sunday during the season, he'd turn up to play for his local club in Cork — not as a serious contender for county honours, but because he loved the sport and the community that came with it.
+			</p>
+			<p>
+				On a cold Saturday in October, the club organised a training session. The pitch had been used heavily that week — matches, extra training, the usual autumn wear and tear. Cillian ran in to collect a loose ball in the third quarter. His foot caught the edge of a deep rut hidden beneath the longer grass near the halfway line. He fell awkwardly, his right ankle twisting beneath him. He heard the crack and felt the pain immediately.
+			</p>
+			<p>
+				At the hospital, the X-ray confirmed a fractured ankle. He needed surgery, then months of physiotherapy. He missed three months of work during recovery. Even after he returned to work, he needed ongoing treatment and couldn't play sport for nearly a year.
+			</p>
+			<p>
+				Cillian wasn't the first player to mention that rut. Other members had complained about the pitch condition, but nothing had been done. The club had been cutting corners on maintenance. When Cillian looked into his legal position, he realised he had a claim.
+			</p>
+			<p>
+				He contacted a solicitor through eSolicitors.ie. The solicitor gathered evidence: photos of the pitch, statements from other players, maintenance records (or lack thereof), and medical reports. The club's insurer eventually accepted liability. Cillian settled his claim for €32,500 — covering his surgery, ongoing physio, lost wages, and pain and suffering.
+			</p>
+		</section>
+
+		<!-- The Law -->
+		<section>
+			<h2>What the Law Says</h2>
+			<div class="law-box">
+				<p>
+					When you play sport, you accept the ordinary risks of that game. If you break your arm in a tackle in rugby, or twist an ankle chasing a ball in football, that's part of what you've agreed to by stepping onto the pitch.
+				</p>
+				<p>
+					<strong>But the law is clear: you do not accept risks created by negligence.</strong>
+				</p>
+				<p>
+					A club, coach, or governing body has a legal duty to provide:
+				</p>
+				<ul class="compensation-list">
+					<li><strong>A safe facility.</strong> That means properly maintained pitches, free from hidden hazards like ruts, holes, or broken equipment.</li>
+					<li><strong>Proper supervision.</strong> Coaches and officials must be present and alert.</li>
+					<li><strong>Safe equipment.</strong> Goals, nets, mats, and protective gear must be fit for purpose.</li>
+					<li><strong>Reasonable warnings.</strong> If there's a known hazard, it should be clearly marked or communicated.</li>
+				</ul>
+				<p>
+					Under Irish law, a club is vicariously liable for injuries caused by their negligence. In Cillian's case, the club had failed to maintain the pitch to a safe standard. That failure directly caused his injury. The law held them accountable.
+				</p>
+			</div>
+		</section>
+
+		<!-- Compensation -->
+		<section>
+			<h2>What You Can Be Entitled To</h2>
+			<p>
+				Compensation for a sports injury caused by negligence typically falls into this range:
+			</p>
+			<ul class="compensation-list">
+				<li><strong>Minor injuries (sprains, minor fractures):</strong> €10,000–€25,000</li>
+				<li><strong>Moderate injuries (fractures needing surgery, some permanent damage):</strong> €25,000–€50,000</li>
+				<li><strong>Serious injuries (permanent disability, ongoing pain, lost career prospects):</strong> €50,000–€80,000+</li>
+			</ul>
+			<p>
+				Compensation covers:
+			</p>
+			<ul class="compensation-list">
+				<li>Medical costs (surgery, physio, ongoing treatment)</li>
+				<li>Lost wages while you recover</li>
+				<li>Pain and suffering</li>
+				<li>Loss of amenity (if the injury stops you doing things you enjoyed)</li>
+				<li>Future care, if needed</li>
+			</ul>
+			<p>
+				Cillian's settlement of €32,500 reflected his surgery costs, physiotherapy, three months of lost wages, and the pain and impact on his daily life during recovery.
+			</p>
+		</section>
+
+		<!-- Time Limit Warning -->
+		<div class="warning-box">
+			<h3>⏰ Important: Time Limit</h3>
+			<p>
+				You have <strong>2 years from the date of the injury</strong> to take legal action. After that, your claim is time-barred. Don't wait. If you've been injured on a sports pitch due to poor maintenance, inadequate supervision, or unsafe equipment, contact a solicitor as soon as possible.
+			</p>
+		</div>
+
+		<!-- Similar Cases -->
+		<section>
+			<h2>Other Cases Like Cillian's</h2>
+			<div class="similar-cases">
+				<div class="case-card">
+					<h4>Emma from Limerick</h4>
+					<p><strong>Injury:</strong> Torn ACL when she collided with a broken goalpost that hadn't been properly secured.</p>
+					<p><strong>Venue:</strong> Rugby club

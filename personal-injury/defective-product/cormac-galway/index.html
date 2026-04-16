@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cormac's story: how a defective power tool caused serious hand injuries in Galway. Learn about product liability law in Ireland and what compensation he received.">
+    <title>Power Tool Injury Compensation | Cormac's Defective Product Story | eSolicitors.ie</title>
+    <style>
+        :root {
+            --navy: #0c1f3d;
+            --gold: #c8922a;
+            --cream: #f7f3ee;
+            --cream-dark: #ede7dc;
+            --white: #fff;
+            --text-mid: #4a5568;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-mid);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--navy);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--cream);
+            padding: 1rem 5%;
+            font-size: 0.9rem;
+            max-width: 100%;
+        }
+
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--text-mid);
+            margin: 0 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .location {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .situation {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 1rem auto;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: var(--navy);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--navy);
+        }
+
+        /* Story Section */
+        .story-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background-color: var(--cream);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ff9800;
+            border-left: 4px solid #ff6b6b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h3 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+
+        /* Similar Cases */
+        .case-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .case-card {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-top: 4px solid var(--gold);
+        }
+
+        .case-card h4 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .case-card .location {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .case-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .case-card .outcome {
+            color: var(--navy);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 3rem 5%;
+            margin-top: 3rem;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--cream);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .story-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">eSolicitors.ie</a>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/personal-injury/">Personal Injury</a>
+        <span>/</span>
+        <a href="/personal-injury/defective-product/">Injury from a Defective Product</a>
+        <span>/</span>
+        <span>Cormac's Story</span>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>How a Faulty Power Tool Changed Everything for Cormac</h1>
+        <div class="location">Galway, Ireland</div>
+        <div class="situation">A defective power drill caused serious hand injuries and opened the door to a major product liability claim</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Story Section -->
+        <section>
+            <h2>Cormac's Story</h2>
+            <div class="story-text">
+                <p>
+                    Cormac was always careful with his tools. A carpenter by trade in Galway, he'd spent years building his reputation on solid craftsmanship and attention to detail. When he bought a new cordless power drill from a well-known brand, he didn't think twice about it. It was a standard model, widely available, and came with all the right certifications. He used it on job sites across Galway for weeks without any problems.
+                </p>
+                <p>
+                    One ordinary Tuesday morning, Cormac was fitting shelves in a kitchen renovation when the drill malfunctioned without warning. The chuck—the part that holds the drill bit—suddenly seized up mid-operation, and the drill bit jammed inside the metal chuck. Because the drill's safety mechanism had failed, the spinning chuck didn't stop. Instead, it twisted the entire drill violently in his hand, wrenching his fingers and palm in directions they were never meant to go. The pain was immediate and shocking.
+                </p>
+                <p>
+                    At Galway Hospital, doctors found multiple fractures in his hand, severe ligament damage, and crush injuries to several fingers. He needed emergency surgery and spent six weeks in a cast. Worse than the physical recovery was what came after: even after the bones healed, his hand never quite worked the same way. He lost strength in his grip, developed chronic pain, and found it difficult to do the detailed work that had always been his living.
+                </p>
+                <p>
+                    It was only when Cormac's solicitor looked into the matter that the real picture emerged. The manufacturer had already received dozens of complaints about the same model. A design fault in the chuck mechanism had been identified across multiple units, but the product was still being sold. The fault wasn't Cormac's fault, wasn't a result of misuse—it was a fundamental flaw in how the product was designed and made.
+                </p>
+                <p>
+                    Under Irish product liability law, the manufacturer was strictly liable. It didn't matter that they hadn't been negligent in the traditional sense, or that the product looked safe. What mattered was that a defective product had caused serious injury. Cormac's case was strong, and the settlement reflected the permanent damage to his hand, his lost earnings, and his altered quality of life.
+                </p>
+            </div>
+        </section>
+
+        <!-- Law Section -->
+        <section>
+            <h2>What the Law Says</h2>
+            <p>
+                In Ireland, the law protecting people injured by faulty products is the <strong>Liability for Defective Products Act 1991</strong>. This is a crucial piece of legislation because it does something very important: it makes manufacturers liable for injuries caused by defective products regardless of whether they were negligent.
+            </p>
+            <div class="info-box">
+                <h3>Key Points About Product Liability</h3>
+                <p>
+                    <strong>A product is considered defective if:</strong>
+                </p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>It doesn't meet the safety standard a reasonable person would expect</li>
+                    <li>It has a design fault that existed when it left the manufacturer</li>
+                    <li>It has a manufacturing fault</li>
+                    <li>There are inadequate warnings or instructions about risks</li>
+                </ul>
+                <p>
+                    <strong>What this means:</strong> You don't have to prove the manufacturer was careless. You just have to show the product was defective and that the defect caused your injury. It's strict liability—the manufacturer is responsible.
+                </p>
+            </div>
+            <p>
+                The manufacturer is the person or company whose name or trademark appears on the product. If you're injured by a defective product in Ireland, they can be held liable for all the damage caused: your medical bills, lost wages, pain and suffering, and any permanent disability.
+            </p>
+            <p>
+                In Cormac's case, the manufacturer couldn't escape liability by saying they weren't negligent. The design fault in the chuck mechanism existed when the drill left the factory. That's all that mattered legally.
+            </p>
+        </section>
+
+        <!-- Compensation Section -->
+        <section>
+            <h2>What Compensation Looks Like</h2>
+            <p>
+                When someone is injured by a defective product in Ireland, compensation is calculated to cover both financial losses and the impact on their life. Cormac's settlement reflects what's typically awarded in serious product liability cases.
+            </p>
+            <div class="info-box">
+                <h3>What Compensation Covers</h3>
+                <p>
+                    <strong>Special Damages (actual financial losses):</strong>
+                </p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>All medical treatment and hospital care</li>
+                    <li>Physiotherapy and ongoing rehabilitation</li>
+                    <li>Lost wages during recovery</li>
+                    <li>Loss of earning capacity if you can't work as before</li>
+                    <li>Cost of equipment or home modifications needed</li>
+                </ul>
+                <p>
+                    <strong>General Damages (pain, suffering, and life impact):</strong>
+                </p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Pain and suffering from the injury</li>
+                    <li>Permanent disability or disfigurement</li>
+                    <li>Loss of quality of life</li>
+                    <li>Psychological impact and trauma</li>
+                    <li>Impact on relationships and daily activities</li>
+                </ul>
+            </div>
+            <p>
+                For serious hand injuries like Cormac's—where there is permanent loss of function and chronic pain—compensation typically ranges from €50,000 to €150,000 or higher, depending on how much the injury affects future earning potential and quality of life. Some cases, especially where the injury results in significant disability, can reach €200,000 or more.
+            </p>
+            <p>
+                Cormac's settlement took into account that he'd need ongoing physiotherapy, that his earning potential as a carpenter had been reduced, and that he'd experience chronic pain for the rest of his life. It was a substantial award, but it reflected the permanent nature of his injury.
+            </p>
+        </section>
+
+        <!-- Warning Box -->
+        <section style="border-bottom: none;">
+            <div class="warning-box">
+                <h3>⏰ Important: Time Limits Apply</h3>
+                <p>
+                    <strong>You have 3 years to take action.</strong> This is the limit under Irish law for bringing a claim for a defective product injury. The clock starts from either the date of your injury or the date you became aware the product caused your injury.
+                </p>
+                <p>
+                    If you wait longer than 3 years, you will lose your right to compensation. This is an absolute deadline. If you've been injured by a faulty product, you should speak to a solicitor as soon as possible—don't wait.
+                </p>
+            </div>
+        </section>
+
+        <!-- Similar Cases -->
