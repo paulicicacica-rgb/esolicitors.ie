@@ -1,0 +1,28 @@
+name: Generate SEO Meta Tags
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-meta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Generate meta titles and descriptions
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 generate_meta.py
+
+      - name: Regenerate sitemap
+        run: python3 generate_sitemap.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "seo: generate meta titles and descriptions for all pages"
+          git push
