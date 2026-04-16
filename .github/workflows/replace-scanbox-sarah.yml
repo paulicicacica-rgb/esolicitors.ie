@@ -1,0 +1,72 @@
+name: Replace Scan-Box With Sarah Chat
+
+on:
+  workflow_dispatch:
+
+jobs:
+  replace-scanbox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Write and run fix script
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            const fs = require('fs');
+            const path = require('path');
+            const glob = require('glob');
+
+            const SARAH_BLOCK = `<div style="background:var(--cream-dark);padding:0 5%">
+  <div style="max-width:540px;margin:0 auto;padding:40px 0">
+    <script src="/sarah.js" data-mode="inline"></script>
+  </div>
+</div>`;
+
+            const SARAH_HERO = `<div class="hero-form-wrap" style="padding:0;overflow:hidden;background:transparent;box-shadow:0 40px 80px rgba(0,0,0,0.35);border-radius:16px;">
+  <script src="/sarah.js" data-mode="inline-hero"></script>
+</div>`;
+
+            const SARAH_CSS = '  #es-inline-wrap{margin:0!important;height:480px!important;border-radius:16px!important}\n';
+
+            const files = execSync('find . -name "*.html" -not -path "./.github/*" -not -path "./api/*"')
+              .toString().trim().split('\n').filter(Boolean);
+
+            for (const filepath of files) {
+              let content;
+              try { content = fs.readFileSync(filepath, 'utf8'); } catch(e) { continue; }
+              const original = content;
+
+              content = content.replace(
+                /<div[^>]*cream-dark[^>]*>\s*<div[^>]*>\s*<div class="scan-box">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g,
+                SARAH_BLOCK
+              );
+
+              if (content.includes('hero-form-wrap')) {
+                content = content.replace(
+                  /<div class="hero-form-wrap"[^>]*>[\s\S]*?<\/div>/,
+                  SARAH_HERO
+                );
+                if (!content.includes('es-inline-wrap')) {
+                  content = content.replace('</style>', SARAH_CSS + '</style>');
+                }
+              }
+
+              content = content.replace(/<script src="\/sarah\.js"[^>]*><\/script>\s*/g, '');
+              content = content.replace('</body>', '  <script src="/sarah.js" data-mode="inline"></script>\n</body>');
+
+              if (content !== original) {
+                fs.writeFileSync(filepath, content, 'utf8');
+                console.log('Updated: ' + filepath);
+              }
+            }
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: replace scan-box with Sarah chat on all pages"
+          git push
