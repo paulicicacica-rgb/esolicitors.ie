@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact eSolicitors.ie | Get in Touch</title>
+<meta name="description" content="Contact eSolicitors.ie. Get in touch with our team or use our free solicitor matching service to speak to a qualified Irish solicitor today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0c1f3d;--navy-mid:#162d52;--gold:#c8922a;--gold-light:#e8b04a;--cream:#f7f3ee;--cream-dark:#ede7dc;--white:#fff;--text-dark:#0c1f3d;--text-mid:#4a5568;--text-light:#8896a8;--border:#e8e2d9}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(200,146,42,0.2);padding:0 5%;height:62px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:6px;font-weight:600!important}
+.hero{background:var(--navy);padding:56px 5%;position:relative;overflow:hidden}
+.hero-inner{max-width:800px;margin:0 auto}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,0.6);line-height:1.7}
+.page-wrap{max-width:900px;margin:0 auto;padding:56px 5%}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px}
+.contact-card-icon{font-size:1.4rem;margin-bottom:10px}
+.contact-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.contact-card-text{font-size:.85rem;color:var(--text-mid);line-height:1.65}
+.contact-card-text a{color:var(--gold);text-decoration:none}
+.contact-card-text a:hover{color:var(--gold-light)}
+.sarah-box{background:var(--navy);border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(12,31,61,0.2)}
+.sarah-header{background:rgba(255,255,255,0.07);padding:16px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.sarah-av{width:40px;height:40px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0}
+.sarah-av img{width:100%;height:100%;object-fit:cover}
+.sarah-header-text strong{display:block;font-size:.88rem;font-weight:600;color:#fff}
+.sarah-header-text span{font-size:.75rem;color:rgba(255,255,255,0.45)}
+.sarah-body{padding:20px 18px}
+.sarah-body p{font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px}
+.btn-gold{display:inline-block;padding:12px 28px;background:var(--gold);color:var(--navy);border-radius:8px;font-size:.9rem;font-weight:700;text-decoration:none;transition:background .2s}
+.btn-gold:hover{background:var(--gold-light)}
+.address-block{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;margin-top:32px}
+.address-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:16px}
+.address-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.address-row:last-child{border-bottom:none}
+.address-label{font-size:.75rem;font-weight:700;color:var(--text-light);min-width:80px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.address-value{font-size:.88rem;color:var(--text-mid);line-height:1.6}
+.address-value a{color:var(--gold);text-decoration:none}
+footer{background:#080f1e;padding:36px 5%}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;margin-bottom:28px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none}
+.footer-logo span{color:var(--gold)}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:.83rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.footer-bottom span{font-size:.75rem;color:rgba(255,255,255,0.25)}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">e<span>Solicitors</span>.ie</a>
+  <ul class="nav-links">
+    <li><a href="/personal-injury/">Personal Injury</a></li>
+    <li><a href="/employment-law/">Employment</a></li>
+    <li><a href="/property-law/">Property</a></li>
+    <li><a href="/family-law/">Family Law</a></li>
+    <li><a href="/chat.html" class="nav-cta">Get Matched</a></li>
+  </ul>
+</nav>
 
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Contact</div>
+    <h1>Get in touch</h1>
+    <p class="hero-sub">Need legal help? Talk to Sarah — she'll match you with the right solicitor in minutes. Or contact us directly below.</p>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <div class="contact-card-title">Phone</div>
+        <div class="contact-card-text"><a href="tel:+35316579800">+353 (0)1 657 9800</a><br>Monday – Friday, 9am – 5:30pm</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-title">Email</div>
+        <div class="contact-card-text"><a href="mailto:info@esolicitors.ie">info@esolicitors.ie</a><br>We respond within one business day</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">⚖️</div>
+        <div class="contact-card-title">For Solicitors</div>
+        <div class="contact-card-text">Interested in receiving referrals? Contact us at <a href="mailto:solicitors@esolicitors.ie">solicitors@esolicitors.ie</a></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sarah-box">
+        <div class="sarah-header">
+          <div class="sarah-av">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sarah"/>
+          </div>
+          <div class="sarah-header-text">
+            <strong>Sarah — eSolicitors.ie</strong>
+            <span>The fastest way to get legal help</span>
+          </div>
+        </div>
+        <div class="sarah-body">
+          <p>The quickest way to get the right legal help is to tell Sarah what happened. She will match you with a qualified solicitor in your county — usually within a few hours. It's completely free.</p>
+          <a href="/chat.html" class="btn-gold">Talk to Sarah — Free →</a>
+        </div>
+      </div>
+
+      <div class="address-block">
+        <div class="address-title">eSolicitors.ie Ltd</div>
+        <div class="address-row">
+          <span class="address-label">Address</span>
+          <span class="address-value">3 The Turnpike<br>Ballymun, Dublin 11<br>Ireland</span>
+        </div>
+        <div class="address-row">
+          <span class="address-label">Phone</span>
+          <span class="address-value"><a href="tel:+35316579800">+353 (0)1 657 9800</a></span>
+        </div>
+        <div class="address-row">
+          <span class="address-label">Email</span>
+          <span class="address-value"><a href="mailto:info@esolicitors.ie">info@esolicitors.ie</a></span>
+        </div>
+        <div class="address-row">
+          <span class="address-label">Hours</span>
+          <span class="address-value">Mon–Fri, 9:00am – 5:30pm</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><a href="/" class="footer-logo">e<span>Solicitors</span>.ie</a></div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 eSolicitors.ie Ltd. All rights reserved.</span>
+      <span>eSolicitors.ie is a referral service, not a law firm.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
