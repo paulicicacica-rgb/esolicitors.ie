@@ -1,0 +1,462 @@
+{
+  "practice_area": "personal-injury",
+  "practice_area_label": "Personal Injury",
+  "subcategories": [
+    {
+      "slug": "dog-bite",
+      "label": "Dog Bite",
+      "hub_url": "/personal-injury/dog-bite/",
+      "law": "Control of Dogs Act 1986 — strict liability applies. The owner is liable regardless of whether the dog had previously bitten anyone.",
+      "time_limit": "2 years from the date of the incident",
+      "compensation_range": "€10,000 to €40,000 for moderate injuries. Serious cases involving scarring or psychological trauma can be significantly higher.",
+      "stories": [
+        {
+          "name": "Aoife",
+          "location": "Dublin",
+          "slug": "aoife-dublin",
+          "situation": "Bitten by a neighbour's dog that had slipped its lead in a communal green. The owner insisted the dog had never done anything like this before.",
+          "outcome": "Claim successful — compensation awarded"
+        },
+        {
+          "name": "Tomás",
+          "location": "Galway",
+          "slug": "tomas-galway",
+          "situation": "A gas meter reader bitten on a routine visit. His employer initially told him it was his own fault for not reading the warning signs properly.",
+          "outcome": "Settlement included loss of earnings"
+        },
+        {
+          "name": "Blessing",
+          "location": "Limerick",
+          "slug": "blessing-limerick",
+          "situation": "Knocked to the ground and bitten by a large dog that broke free from its owner during a walk. Sustained bruising and a deep bite on her calf.",
+          "outcome": "Psychological impact included in award"
+        },
+        {
+          "name": "Piotr",
+          "location": "Kildare",
+          "slug": "piotr-kildare",
+          "situation": "Delivery driver bitten at a rural property. The dog had been in the garden unattended. The owner had no home insurance but the claim still proceeded.",
+          "outcome": "Full settlement reached"
+        }
+      ]
+    },
+    {
+      "slug": "road-traffic-accident",
+      "label": "Car or Road Traffic Accident",
+      "hub_url": "/personal-injury/road-traffic-accident/",
+      "law": "Road Traffic Act — drivers owe a duty of care to other road users. Claims go through the Motor Insurers Bureau of Ireland (MIBI) if the driver is uninsured.",
+      "time_limit": "2 years from the date of the accident",
+      "compensation_range": "€15,000 to €100,000+ depending on injury severity, loss of earnings, and long-term impact.",
+      "stories": [
+        {
+          "name": "Ciara",
+          "location": "Dublin",
+          "slug": "ciara-dublin",
+          "situation": "Rear-ended at a red light by a driver who admitted he was looking at his phone. Ciara suffered whiplash and missed three weeks of work.",
+          "outcome": "Settlement reached including lost earnings"
+        },
+        {
+          "name": "Seamus",
+          "location": "Cork",
+          "slug": "seamus-cork",
+          "situation": "Hit by a car while crossing at a pedestrian crossing. The driver claimed the lights were amber. CCTV footage told a different story.",
+          "outcome": "Full compensation awarded"
+        },
+        {
+          "name": "Natalia",
+          "location": "Galway",
+          "slug": "natalia-galway",
+          "situation": "Passenger in a car driven by a friend who lost control on a wet road. She was reluctant to claim against her friend but her solicitor explained how insurance works.",
+          "outcome": "Claim settled against driver's insurance"
+        },
+        {
+          "name": "Kevin",
+          "location": "Limerick",
+          "slug": "kevin-limerick",
+          "situation": "Hit from the side at a junction by a driver who jumped a stop sign. Kevin's car was written off and he had a fractured wrist.",
+          "outcome": "Compensation included vehicle damage and injury"
+        }
+      ]
+    },
+    {
+      "slug": "slip-and-fall",
+      "label": "Slipped or Fell in a Shop or Public Place",
+      "hub_url": "/personal-injury/slip-and-fall/",
+      "law": "Occupiers Liability Act 1995 — businesses and property owners owe a duty of care to visitors. Failure to maintain safe premises creates liability.",
+      "time_limit": "2 years from the date of the incident",
+      "compensation_range": "€10,000 to €60,000 depending on injury, loss of earnings, and medical costs.",
+      "stories": [
+        {
+          "name": "Siobhan",
+          "location": "Dublin",
+          "slug": "siobhan-dublin",
+          "situation": "Slipped on a wet floor in Lidl. No warning sign, no cone. Staff were apologetic but the company denied liability initially.",
+          "outcome": "Settled — fractured wrist, medical costs covered"
+        },
+        {
+          "name": "Marek",
+          "location": "Cork",
+          "slug": "marek-cork",
+          "situation": "Tripped on a broken floor tile in a shopping centre. He reported it to security but was told the tile had only just been noticed that day.",
+          "outcome": "Compensation awarded including loss of earnings"
+        },
+        {
+          "name": "Patricia",
+          "location": "Waterford",
+          "slug": "patricia-waterford",
+          "situation": "Fell on an unmarked step at the entrance of a restaurant. The lighting was poor and there was no high-visibility strip on the edge of the step.",
+          "outcome": "Claim successful — restaurant found liable"
+        },
+        {
+          "name": "Ahmed",
+          "location": "Galway",
+          "slug": "ahmed-galway",
+          "situation": "Slipped on a wet surface outside a supermarket during a rain shower. No mat, no warning, no non-slip surface at the entrance.",
+          "outcome": "Settlement reached out of court"
+        }
+      ]
+    },
+    {
+      "slug": "workplace-injury",
+      "label": "Injured at Work or on a Job Site",
+      "hub_url": "/personal-injury/workplace-injury/",
+      "law": "Safety, Health and Welfare at Work Act 2005 — employers have a statutory duty to provide a safe workplace, safe equipment, and adequate training.",
+      "time_limit": "2 years from the date of the injury",
+      "compensation_range": "€20,000 to €150,000+ depending on severity, long-term impact on ability to work, and employer negligence.",
+      "stories": [
+        {
+          "name": "Brendan",
+          "location": "Dublin",
+          "slug": "brendan-dublin",
+          "situation": "Fell from scaffolding on a construction site. No safety harness had been provided. His employer claimed he should have requested one.",
+          "outcome": "Full compensation — employer found negligent"
+        },
+        {
+          "name": "Olga",
+          "location": "Cork",
+          "slug": "olga-cork",
+          "situation": "Warehouse worker who injured her back lifting heavy boxes without any manual handling training. HR told her it was just part of the job.",
+          "outcome": "Settled — back injury, loss of earnings included"
+        },
+        {
+          "name": "James",
+          "location": "Limerick",
+          "slug": "james-limerick",
+          "situation": "Factory worker whose hand was caught in machinery that lacked a proper safety guard. The guard had been removed three weeks earlier for maintenance.",
+          "outcome": "Significant settlement — permanent injury"
+        },
+        {
+          "name": "Yvonne",
+          "location": "Galway",
+          "slug": "yvonne-galway",
+          "situation": "Slipped on a wet floor in a hotel kitchen where no non-slip footwear had been provided despite repeated requests. Fractured her ankle.",
+          "outcome": "Compensation awarded including future losses"
+        }
+      ]
+    },
+    {
+      "slug": "medical-negligence",
+      "label": "Medical Negligence or Hospital Error",
+      "hub_url": "/personal-injury/medical-negligence/",
+      "law": "Medical practitioners owe a duty of care to patients. A claim arises when treatment falls below the standard expected of a reasonably competent practitioner and causes harm.",
+      "time_limit": "2 years from the date you became aware of the negligence",
+      "compensation_range": "€30,000 to €500,000+ depending on the severity of harm caused.",
+      "stories": [
+        {
+          "name": "Mary",
+          "location": "Dublin",
+          "slug": "mary-dublin",
+          "situation": "Diagnosed with cancer six months later than she should have been due to a missed reading on a scan. Her prognosis changed significantly as a result.",
+          "outcome": "Case settled — hospital admitted delayed diagnosis"
+        },
+        {
+          "name": "Paul",
+          "location": "Cork",
+          "slug": "paul-cork",
+          "situation": "Underwent a routine operation after which he developed a serious infection. It later emerged standard post-operative protocols had not been followed.",
+          "outcome": "Compensation awarded for avoidable suffering"
+        },
+        {
+          "name": "Fatima",
+          "location": "Galway",
+          "slug": "fatima-galway",
+          "situation": "Given incorrect medication by a hospital pharmacy. The error was not caught until she had an adverse reaction requiring further treatment.",
+          "outcome": "Settled — medication error confirmed"
+        },
+        {
+          "name": "Declan",
+          "location": "Limerick",
+          "slug": "declan-limerick",
+          "situation": "A surgical procedure left him with nerve damage that was later found to be a result of poor technique rather than an unavoidable complication.",
+          "outcome": "Expert evidence supported claim — settled"
+        }
+      ]
+    },
+    {
+      "slug": "property-accident",
+      "label": "Injured on Someone Else's Property",
+      "hub_url": "/personal-injury/property-accident/",
+      "law": "Occupiers Liability Act 1995 — property owners must take reasonable care to ensure their premises are safe for visitors.",
+      "time_limit": "2 years from the date of the incident",
+      "compensation_range": "€10,000 to €75,000 depending on injury and circumstances.",
+      "stories": [
+        {
+          "name": "Louise",
+          "location": "Dublin",
+          "slug": "louise-dublin",
+          "situation": "Fell through a rotting wooden step at a rental property she was viewing. The landlord was present and had not flagged any hazard.",
+          "outcome": "Claim successful — landlord's insurance paid out"
+        },
+        {
+          "name": "Conor",
+          "location": "Cork",
+          "slug": "conor-cork",
+          "situation": "Injured when a garden gate collapsed on him while visiting a friend. The latch had been broken for months.",
+          "outcome": "Settled — homeowner liability confirmed"
+        },
+        {
+          "name": "Elena",
+          "location": "Galway",
+          "slug": "elena-galway",
+          "situation": "Tripped on uneven paving at a private car park. The hazard was not marked and had been reported to the owner previously.",
+          "outcome": "Compensation awarded"
+        },
+        {
+          "name": "Tomasz",
+          "location": "Kildare",
+          "slug": "tomasz-kildare",
+          "situation": "Was hit by a falling object at a neighbour's property during renovation work. No safety barriers had been erected.",
+          "outcome": "Full settlement reached"
+        }
+      ]
+    },
+    {
+      "slug": "cycling-pedestrian-accident",
+      "label": "Cycling Accident or Pedestrian Knocked Down",
+      "hub_url": "/personal-injury/cycling-pedestrian-accident/",
+      "law": "Road Traffic Act — motorists owe a duty of care to cyclists and pedestrians. Local authorities may also be liable for poor road or path maintenance.",
+      "time_limit": "2 years from the date of the accident",
+      "compensation_range": "€15,000 to €120,000+ depending on injuries sustained.",
+      "stories": [
+        {
+          "name": "Roisin",
+          "location": "Dublin",
+          "slug": "roisin-dublin",
+          "situation": "Knocked off her bike by a car door being opened without warning. She fractured her collarbone and was off work for two months.",
+          "outcome": "Settled — driver's insurance accepted liability"
+        },
+        {
+          "name": "Michal",
+          "location": "Cork",
+          "slug": "michal-cork",
+          "situation": "Hit by a van while cycling in a designated cycle lane. The driver claimed he didn't see him.",
+          "outcome": "Full compensation awarded"
+        },
+        {
+          "name": "Grace",
+          "location": "Galway",
+          "slug": "grace-galway",
+          "situation": "Knocked down on a pedestrian crossing by a driver who ran a red light. Suffered a broken leg and significant psychological trauma.",
+          "outcome": "Significant settlement including psychological damages"
+        },
+        {
+          "name": "Ibrahim",
+          "location": "Limerick",
+          "slug": "ibrahim-limerick",
+          "situation": "Cyclist who fell due to a large pothole that the council had been notified about six months earlier. No repair had been made.",
+          "outcome": "Claim against council — settled successfully"
+        }
+      ]
+    },
+    {
+      "slug": "assault",
+      "label": "Victim of an Assault",
+      "hub_url": "/personal-injury/assault/",
+      "law": "Victims of assault in Ireland can bring a civil claim for compensation in addition to any criminal proceedings. Claims can also be made to the Criminal Injuries Compensation Tribunal.",
+      "time_limit": "2 years from the date of the assault",
+      "compensation_range": "€10,000 to €100,000+ depending on physical and psychological injuries.",
+      "stories": [
+        {
+          "name": "Derek",
+          "location": "Dublin",
+          "slug": "derek-dublin",
+          "situation": "Attacked outside a pub by a stranger. Suffered a broken nose and significant anxiety following the incident. The attacker was identified and charged.",
+          "outcome": "Civil claim settled — Criminal Injuries Tribunal also awarded compensation"
+        },
+        {
+          "name": "Alina",
+          "location": "Cork",
+          "slug": "alina-cork",
+          "situation": "Assaulted by a fellow employee at work. Her employer had previously received complaints about this person and taken no action.",
+          "outcome": "Claim against employer — negligence established"
+        },
+        {
+          "name": "Shane",
+          "location": "Galway",
+          "slug": "shane-galway",
+          "situation": "Attacked by a nightclub patron in circumstances where security staff failed to intervene despite the situation escalating visibly.",
+          "outcome": "Venue found liable — settled out of court"
+        },
+        {
+          "name": "Valentina",
+          "location": "Waterford",
+          "slug": "valentina-waterford",
+          "situation": "Victim of a random street assault that left her with lasting psychological effects. Did not know she could claim compensation through the Criminal Injuries Tribunal.",
+          "outcome": "Tribunal award made — solicitor guided full process"
+        }
+      ]
+    },
+    {
+      "slug": "pothole-road-defect",
+      "label": "Pothole or Road Defect Injury",
+      "hub_url": "/personal-injury/pothole-road-defect/",
+      "law": "Local authorities have a duty under the Roads Act 1993 to maintain public roads. If they had notice of a defect and failed to repair it, they may be liable.",
+      "time_limit": "2 years from the date of the injury — but notice to the council within 2 months is strongly advised",
+      "compensation_range": "€10,000 to €60,000 depending on injury severity.",
+      "stories": [
+        {
+          "name": "Liam",
+          "location": "Mayo",
+          "slug": "liam-mayo",
+          "situation": "Motorbike rider thrown from his bike after hitting a large pothole on a rural road. The pothole had been reported to the council four times over two years.",
+          "outcome": "Council liability established — settled"
+        },
+        {
+          "name": "Sandra",
+          "location": "Tipperary",
+          "slug": "sandra-tipperary",
+          "situation": "Cyclist fell and broke her wrist after her wheel caught in a cracked road surface outside a school.",
+          "outcome": "Compensation awarded"
+        },
+        {
+          "name": "Bartosz",
+          "location": "Dublin",
+          "slug": "bartosz-dublin",
+          "situation": "Pedestrian who twisted his ankle badly stepping into an unmarked sunken drain on a footpath. Required surgery.",
+          "outcome": "Settled — council accepted the path was substandard"
+        },
+        {
+          "name": "Nuala",
+          "location": "Clare",
+          "slug": "nuala-clare",
+          "situation": "Car tyre blew out hitting a large pothole at night on an unlit road. The impact caused her to lose control and hit a ditch. She suffered neck and back injuries.",
+          "outcome": "Full settlement including vehicle damage"
+        }
+      ]
+    },
+    {
+      "slug": "sports-injury",
+      "label": "Sports Injury Due to Negligence",
+      "hub_url": "/personal-injury/sports-injury/",
+      "law": "Participants in sport accept ordinary risks of the game, but not risks created by negligence — unsafe facilities, inadequate supervision, or dangerous equipment.",
+      "time_limit": "2 years from the date of the injury",
+      "compensation_range": "€10,000 to €80,000 depending on the nature and permanence of the injury.",
+      "stories": [
+        {
+          "name": "Cillian",
+          "location": "Cork",
+          "slug": "cillian-cork",
+          "situation": "Injured on a GAA pitch that had not been properly maintained. A concealed rut caused him to fall awkwardly, fracturing his ankle.",
+          "outcome": "Club found liable — settled"
+        },
+        {
+          "name": "Nikita",
+          "location": "Dublin",
+          "slug": "nikita-dublin",
+          "situation": "Gym member injured when a cable machine snapped due to poor maintenance. The equipment had not been serviced in over a year.",
+          "outcome": "Gym negligence established — compensation awarded"
+        },
+        {
+          "name": "Fiona",
+          "location": "Galway",
+          "slug": "fiona-galway",
+          "situation": "Participant in a organised 5k run who fell into an unmarked hole on the course route. The route had not been checked before the event.",
+          "outcome": "Organiser found liable — settled"
+        },
+        {
+          "name": "Dmitri",
+          "location": "Limerick",
+          "slug": "dmitri-limerick",
+          "situation": "Swimming pool user who slipped on an untreated wet surface in the changing area and fractured his hip.",
+          "outcome": "Full compensation awarded"
+        }
+      ]
+    },
+    {
+      "slug": "defective-product",
+      "label": "Injury from a Defective Product",
+      "hub_url": "/personal-injury/defective-product/",
+      "law": "Liability for Defective Products Act 1991 — manufacturers are liable for damage caused by defective products regardless of fault or negligence.",
+      "time_limit": "3 years from the date of injury or the date you became aware the product caused the injury",
+      "compensation_range": "€10,000 to €200,000+ depending on the severity of injury caused.",
+      "stories": [
+        {
+          "name": "Anita",
+          "location": "Dublin",
+          "slug": "anita-dublin",
+          "situation": "Suffered burns when a faulty electric blanket overheated. The product had already been subject to a recall she had not been notified about.",
+          "outcome": "Manufacturer liability confirmed — settled"
+        },
+        {
+          "name": "Ronan",
+          "location": "Cork",
+          "slug": "ronan-cork",
+          "situation": "Food poisoning caused by contaminated packaged food bought from a supermarket. A batch issue was later confirmed by the FSAI.",
+          "outcome": "Compensation awarded — producer liability"
+        },
+        {
+          "name": "Svetlana",
+          "location": "Kildare",
+          "slug": "svetlana-kildare",
+          "situation": "Injured when a children's toy broke apart and caused a laceration requiring stitches. The product failed EU safety standards.",
+          "outcome": "Settled — importer found liable"
+        },
+        {
+          "name": "Cormac",
+          "location": "Galway",
+          "slug": "cormac-galway",
+          "situation": "Power tool malfunctioned during normal use causing serious hand injuries. A design fault was identified in the same model across multiple units.",
+          "outcome": "Significant settlement — permanent injury"
+        }
+      ]
+    },
+    {
+      "slug": "holiday-travel-accident",
+      "label": "Holiday or Travel Accident",
+      "hub_url": "/personal-injury/holiday-travel-accident/",
+      "law": "Package Travel Regulations 2019 — tour operators are liable for the proper performance of all services in a package holiday. Claims for overseas accidents can often be brought in Ireland.",
+      "time_limit": "2 years — though this varies depending on where the accident occurred",
+      "compensation_range": "€10,000 to €100,000+ depending on injury and circumstances.",
+      "stories": [
+        {
+          "name": "Rachel",
+          "location": "Dublin",
+          "slug": "rachel-dublin",
+          "situation": "Slipped by a hotel pool on a package holiday. The surface was wet and there was no warning sign. She fractured her wrist and her holiday was ruined.",
+          "outcome": "Tour operator liable — Irish court claim successful"
+        },
+        {
+          "name": "Tadgh",
+          "location": "Cork",
+          "slug": "tadgh-cork",
+          "situation": "Food poisoning at an all-inclusive resort left him hospitalised for three days. Multiple guests from the same tour group were affected.",
+          "outcome": "Group claim — full compensation awarded"
+        },
+        {
+          "name": "Miriam",
+          "location": "Galway",
+          "slug": "miriam-galway",
+          "situation": "Injured on a excursion booked through a package holiday operator. The activity provider had no proper safety briefing or equipment checks.",
+          "outcome": "Tour operator found responsible — settled"
+        },
+        {
+          "name": "Andrei",
+          "location": "Limerick",
+          "slug": "andrei-limerick",
+          "situation": "Suffered a serious injury when a hired scooter had faulty brakes. He was not warned about the fault and had not been given a safety check before departure.",
+          "outcome": "Rental company and tour operator both found liable"
+        }
+      ]
+    }
+  ]
+}
