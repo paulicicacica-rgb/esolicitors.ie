@@ -306,6 +306,64 @@ footer {
     gap: 20px;
   }
 }
+
+  /* ── MOBILE NAV ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 201;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+  .nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none !important;
+      position: fixed;
+      top: 62px; left: 0; right: 0;
+      background: var(--navy, #0c1f3d);
+      flex-direction: column;
+      padding: 20px 5% 28px;
+      gap: 0 !important;
+      border-bottom: 1px solid rgba(200,146,42,0.2);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      z-index: 199;
+    }
+    .nav-open .nav-links {
+      display: flex !important;
+    }
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-links a {
+      display: block;
+      padding: 14px 0;
+      font-size: .95rem !important;
+      color: rgba(255,255,255,0.8) !important;
+    }
+    .nav-links .nav-cta {
+      margin-top: 12px;
+      background: var(--gold, #c8922a) !important;
+      color: var(--navy, #0c1f3d) !important;
+      padding: 12px 20px !important;
+      border-radius: 8px;
+      text-align: center;
+      display: block;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -318,6 +376,7 @@ footer {
     <li><a href="https://esolicitors.ie/about/">About</a></li>
     <li><a href="https://esolicitors.ie/contact/">Contact</a></li>
   </ul>
+<button class="nav-hamburger" onclick="this.closest('nav').classList.toggle('nav-open')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="breadcrumb">
