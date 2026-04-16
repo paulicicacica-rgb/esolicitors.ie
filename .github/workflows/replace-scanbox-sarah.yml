@@ -1,0 +1,22 @@
+name: Replace Scan-Box With Sarah Chat
+
+on:
+  workflow_dispatch:
+
+jobs:
+  replace-scanbox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run fix script
+        run: python3 fix_sarah.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: replace scan-box with Sarah chat on all pages"
+          git push
