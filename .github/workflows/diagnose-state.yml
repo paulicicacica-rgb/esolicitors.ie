@@ -1,0 +1,64 @@
+name: Diagnostic - Repo State
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Check repo state
+        run: |
+          python3 - << 'PYEOF'
+          import glob, re, os
+
+          # 1. Count story folders
+          story_folders = glob.glob("./*/*/*/*/index.html", recursive=True)
+          print(f"\nStory pages (4 levels deep): {len(story_folders)}")
+          for f in story_folders[:5]:
+              print(f"  {f}")
+          if len(story_folders) > 5:
+              print(f"  ... and {len(story_folders)-5} more")
+
+          # 2. Check for sarah.js conflicts
+          print("\nPages with BOTH sarah.js AND own chat widget:")
+          files = glob.glob("./**/*.html", recursive=True) + glob.glob("./*.html")
+          conflicts = 0
+          for f in sorted(files):
+              if '.github' in f or '/api/' in f:
+                  continue
+              try:
+                  with open(f) as fp:
+                      content = fp.read()
+              except:
+                  continue
+              has_sarah = 'sarah.js' in content
+              has_own = 'chatInput' in content or ('eSolicitors Assistant' in content and 'sendMessage' in content)
+              if has_sarah and has_own:
+                  print(f"  CONFLICT: {f}")
+                  conflicts += 1
+          print(f"Total conflicts: {conflicts}")
+
+          # 3. Check linked cards
+          print("\nPages with unlinked case cards:")
+          unlinked = 0
+          for f in sorted(files):
+              if '.github' in f or '/api/' in f:
+                  continue
+              try:
+                  with open(f) as fp:
+                      content = fp.read()
+              except:
+                  continue
+              if 'case-card' in content:
+                  # Check if cards are wrapped in <a> tags
+                  linked = len(re.findall(r'<a[^>]*class="case-card"', content))
+                  unlinked_count = len(re.findall(r'<div class="case-card">', content))
+                  if unlinked_count > 0:
+                      print(f"  {f}: {unlinked_count} unlinked, {linked} linked")
+                      unlinked += 1
+          print(f"Files with unlinked cards: {unlinked}")
+          PYEOF
