@@ -1,0 +1,48 @@
+name: Generate OG Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-og:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Generate OG image
+        run: |
+          node << 'NODEOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+            await page.setViewportSize({ width: 1200, height: 630 });
+            const html = fs.readFileSync('og-image.html', 'utf8');
+            await page.setContent(html, { waitUntil: 'networkidle' });
+            await page.waitForTimeout(2000);
+            await page.screenshot({ path: 'og-image.jpg', type: 'jpeg', quality: 95, fullPage: false });
+            await browser.close();
+            console.log('Done — og-image.jpg generated at 1200x630');
+          })();
+          NODEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add og-image.jpg
+          git diff --staged --quiet || git commit -m "feat: generate og-image.jpg 1200x630"
+          git push
