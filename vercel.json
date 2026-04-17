@@ -1,6 +1,5 @@
 {
   "outputDirectory": "public",
-  "buildCommand": "node ping-sitemap.js",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
