@@ -1,0 +1,22 @@
+name: Add Meta Tags and Favicon
+
+on:
+  workflow_dispatch:
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Add meta tags, OG and favicon to all pages
+        run: python3 add_meta_tags.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: add favicon, OG tags, canonical and meta descriptions to all pages"
+          git push
