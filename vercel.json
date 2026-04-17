@@ -1,0 +1,18 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/chat.js": {
+      "memory": 256,
+      "maxDuration": 15
+    },
+    "api/leads.js": {
+      "memory": 128,
+      "maxDuration": 10
+    },
+    "api/get-leads.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  }
+}
