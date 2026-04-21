@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leads — eSolicitors.ie</title>
+<meta name="description" content="Leads — eSolicitors.ie — Free solicitor matching in Ireland. Tell us what happened and we'll connect you with the right solicitor in your county. No cost, no obligation.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0c1f3d; --navy-mid: #162d52; --gold: #c8922a; --gold-light: #e8b04a;
+    --cream: #f7f3ee; --cream-dark: #ede7dc; --white: #fff;
+    --text: #1c1c1c; --soft: #5a5a5a; --border: #e2ddd6;
+    --green: #1a7a4a; --green-light: #e8f5ee;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--navy); min-height: 100vh; color: var(--text); }
+
+  /* LOGIN */
+  #login-screen {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .login-box {
+    background: var(--white); border-radius: 16px; padding: 40px 36px;
+    width: 100%; max-width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .login-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .login-logo span { color: var(--gold); }
+  .login-sub { font-size: .83rem; color: var(--soft); margin-bottom: 28px; }
+  .login-label { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--navy); margin-bottom: 7px; display: block; }
+  .login-input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--border);
+    border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: .93rem;
+    color: var(--text); outline: none; transition: border-color .2s; margin-bottom: 16px;
+  }
+  .login-input:focus { border-color: var(--gold); }
+  .login-btn {
+    width: 100%; padding: 13px; background: var(--navy); color: var(--white);
+    border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-size: .95rem; font-weight: 600; cursor: pointer; transition: background .2s;
+  }
+  .login-btn:hover { background: var(--navy-mid); }
+  .login-error { font-size: .8rem; color: #c0392b; margin-top: 10px; text-align: center; display: none; }
+
+  /* DASHBOARD */
+  #dashboard { display: none; }
+
+  .topbar {
+    background: var(--navy); border-bottom: 1px solid rgba(200,146,42,0.2);
+    padding: 0 5%; height: 60px; display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .topbar-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; }
+  .topbar-logo span { color: var(--gold); }
+  .topbar-right { display: flex; align-items: center; gap: 16px; }
+  .topbar-label { font-size: .78rem; color: rgba(255,255,255,0.5); }
+  .logout-btn { font-size: .78rem; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; transition: color .2s; }
+  .logout-btn:hover { color: var(--gold-light); }
+
+  .dashboard-body { padding: 32px 5%; max-width: 1200px; margin: 0 auto; }
+
+  /* STATS ROW */
+  .stats-row { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .stat-card {
+    background: var(--white); border-radius: 12px; padding: 20px 24px;
+    flex: 1; min-width: 140px; border: 1px solid var(--border);
+  }
+  .stat-card-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); }
+  .stat-card-label { font-size: .75rem; color: var(--soft); margin-top: 4px; font-weight: 500; }
+
+  /* FILTERS */
+  .filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+  .filter-input {
+    padding: 9px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: .85rem; color: var(--text);
+    background: var(--white); outline: none; transition: border-color .2s;
+  }
+  .filter-input:focus { border-color: var(--gold); }
+  .filter-count { font-size: .8rem; color: var(--soft); margin-left: auto; }
+
+  /* LEADS TABLE */
+  .leads-wrap { background: var(--white); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+  .leads-header {
+    display: grid; grid-template-columns: 160px 130px 120px 1fr 100px;
+    padding: 12px 20px; background: var(--cream-dark);
+    border-bottom: 1px solid var(--border);
+    font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--soft);
+  }
+  .lead-row {
+    display: grid; grid-template-columns: 160px 130px 120px 1fr 100px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    align-items: start; cursor: pointer; transition: background .15s;
+  }
+  .lead-row:last-child { border-bottom: none; }
+  .lead-row:hover { background: var(--cream); }
+  .lead-row.new { border-left: 3px solid var(--gold); }
+  .lead-date { font-size: .78rem; color: var(--soft); }
+  .lead-name { font-size: .88rem; font-weight: 600; color: var(--navy); }
+  .lead-phone { font-size: .85rem; color: var(--text); }
+  .lead-issue { font-size: .82rem; color: var(--soft); line-height: 1.5; padding-right: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lead-source { font-size: .72rem; color: var(--soft); }
+  .new-badge {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    font-size: .65rem; font-weight: 700; padding: 2px 7px; border-radius: 10px;
+    margin-left: 6px; vertical-align: middle;
+  }
+
+  /* TRANSCRIPT MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); z-index: 200;
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--white); border-radius: 16px;
+    width: 100%; max-width: 600px; max-height: 85vh;
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .modal-header {
+    padding: 20px 24px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-shrink: 0;
+  }
+  .modal-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+  .modal-meta { font-size: .78rem; color: var(--soft); margin-top: 4px; }
+  .modal-close { background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--soft); padding: 0 4px; line-height: 1; }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+  .modal-section-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; margin-top: 20px; }
+  .modal-section-label:first-child { margin-top: 0; }
+  .modal-detail { font-size: .88rem; color: var(--text); line-height: 1.6; }
+  .transcript-line { font-size: .83rem; line-height: 1.65; padding: 6px 0; border-bottom: 1px solid var(--cream-dark); }
+  .transcript-line:last-child { border-bottom: none; }
+  .transcript-line.visitor { color: var(--navy); font-weight: 500; }
+  .transcript-line.sarah { color: var(--soft); }
+  .transcript-speaker { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+  .transcript-line.visitor .transcript-speaker { color: var(--navy); }
+  .transcript-line.sarah .transcript-speaker { color: var(--gold); }
+
+  .empty-state { padding: 60px 20px; text-align: center; color: var(--soft); }
+  .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+
+  .loading { padding: 40px; text-align: center; color: var(--soft); font-size: .88rem; }
+
+  /* LAYOUT WITH SIDEBAR */
+  .dashboard-layout { display: flex; gap: 24px; align-items: flex-start; }
+  .leads-main { flex: 1; min-width: 0; }
+
+  /* FOLDER SIDEBAR */
+  .folder-sidebar {
+    width: 200px; flex-shrink: 0;
+    background: var(--white); border-radius: 12px; border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .folder-sidebar-header {
+    padding: 14px 16px 10px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .folder-sidebar-title { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
+  .folder-add-btn {
+    background: none; border: none; cursor: pointer; color: var(--gold);
+    font-size: 1.2rem; line-height: 1; padding: 0 2px;
+  }
+  .folder-add-btn:hover { color: var(--gold-light); }
+  .folder-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 16px; cursor: pointer; transition: background .15s;
+    border-bottom: 1px solid var(--border); gap: 8px;
+  }
+  .folder-item:last-child { border-bottom: none; }
+  .folder-item:hover { background: var(--cream); }
+  .folder-item.active { background: var(--cream-dark); }
+  .folder-item-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .folder-icon { font-size: .95rem; flex-shrink: 0; }
+  .folder-name { font-size: .83rem; font-weight: 500; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .folder-count { font-size: .7rem; background: var(--cream-dark); color: var(--soft); border-radius: 10px; padding: 1px 7px; flex-shrink: 0; font-weight: 600; }
+  .folder-item.active .folder-count { background: var(--navy); color: var(--white); }
+  .folder-delete-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: .8rem; padding: 2px; flex-shrink: 0; }
+  .folder-delete-btn:hover { color: #c0392b; }
+
+  /* DELETE & MOVE ACTIONS on rows */
+  .lead-row { grid-template-columns: 155px 125px 115px 1fr 90px 70px; }
+  .leads-header { grid-template-columns: 155px 125px 115px 1fr 90px 70px; }
+  .lead-actions { display: flex; gap: 6px; align-items: center; justify-content: flex-end; }
+  .action-btn {
+    background: none; border: 1px solid var(--border); border-radius: 6px;
+    cursor: pointer; padding: 4px 7px; font-size: .75rem; color: var(--soft);
+    transition: all .15s; line-height: 1;
+  }
+  .action-btn:hover { background: var(--cream); color: var(--navy); }
+  .action-btn.delete-btn:hover { border-color: #e74c3c; color: #e74c3c; background: #fff5f5; }
+
+  /* MOVE MODAL */
+  .move-modal {
+    background: var(--white); border-radius: 12px;
+    width: 100%; max-width: 340px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;
+  }
+  .move-modal-header { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  .move-modal-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--navy); font-weight: 700; }
+  .move-modal-sub { font-size: .78rem; color: var(--soft); margin-top: 3px; }
+  .move-folder-list { padding: 8px 0; max-height: 300px; overflow-y: auto; }
+  .move-folder-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 20px; cursor: pointer; transition: background .15s;
+    font-size: .88rem; color: var(--navy);
+  }
+  .move-folder-item:hover { background: var(--cream); }
+  .move-folder-item.current { color: var(--soft); pointer-events: none; font-style: italic; }
+  .move-modal-footer { padding: 12px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
+  .cancel-btn {
+    background: none; border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: .85rem;
+    cursor: pointer; color: var(--soft);
+  }
+  .cancel-btn:hover { background: var(--cream); }
+
+  /* New folder input */
+  .new-folder-form { padding: 10px 16px; border-top: 1px solid var(--border); display: none; }
+  .new-folder-form.open { display: flex; gap: 6px; }
+  .new-folder-input {
+    flex: 1; padding: 7px 10px; border: 1.5px solid var(--border);
+    border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: .83rem;
+    outline: none;
+  }
+  .new-folder-input:focus { border-color: var(--gold); }
+  .new-folder-save {
+    padding: 7px 12px; background: var(--navy); color: var(--white);
+    border: none; border-radius: 6px; cursor: pointer; font-size: .8rem; font-weight: 600;
+  }
+
+  /* Folder badge in modal */
+  .folder-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--cream-dark); border-radius: 20px;
+    padding: 4px 12px; font-size: .78rem; color: var(--navy); font-weight: 500;
+    margin-right: 8px; margin-bottom: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .dashboard-layout { flex-direction: column; }
+    .folder-sidebar { width: 100%; }
+    .move-folder-list { display: flex; flex-wrap: wrap; padding: 12px; gap: 8px; }
+    .move-folder-item { padding: 8px 14px; border: 1px solid var(--border); border-radius: 8px; }
+  }
+  @media (max-width: 700px) {
+    .leads-header { grid-template-columns: 1fr 1fr 60px; }
+    .lead-row { grid-template-columns: 1fr 1fr 60px; gap: 4px; }
+    .lead-issue, .lead-source { display: none; }
+    .leads-header span:nth-child(3), .leads-header span:nth-child(4), .leads-header span:nth-child(5) { display: none; }
+  }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="eSolicitors.ie">
+<meta property="og:title" content="Leads — eSolicitors.ie">
+<meta property="og:description" content="Leads — eSolicitors.ie — Free solicitor matching in Ireland. Tell us what happened and we'll connect you with the right solicitor in your county. No cost, no obligation.">
+<meta property="og:image" content="https://esolicitors.ie/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://esolicitors.ie/dashboard/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leads — eSolicitors.ie">
+<meta name="twitter:description" content="Leads — eSolicitors.ie — Free solicitor matching in Ireland. Tell us what happened and we'll connect you with the right solicitor in your county. No cost, no obligation.">
+<meta name="twitter:image" content="https://esolicitors.ie/og-image.jpg">
+<link rel="canonical" href="https://esolicitors.ie/dashboard/">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">e<span>Solicitors</span>.ie</div>
+    <p class="login-sub">Leads dashboard — private access</p>
+    <label class="login-label">Password</label>
+    <input type="password" class="login-input" id="passwordInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+    <button class="login-btn" onclick="login()">Access Dashboard</button>
+    <p class="login-error" id="loginError">Incorrect password</p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="topbar">
+    <a href="/" class="topbar-logo">e<span>Solicitors</span>.ie</a>
+    <div class="topbar-right">
+      <span class="topbar-label" id="lastUpdated"></span>
+      <button class="logout-btn" onclick="logout()">Log out</button>
+    </div>
+  </div>
+
+  <div class="dashboard-body">
+    <div class="stats-row" id="statsRow">
+      <div class="stat-card"><div class="stat-card-num" id="statTotal">—</div><div class="stat-card-label">Total Leads</div></div>
+      <div class="stat-card"><div class="stat-card-num" id="statToday">—</div><div class="stat-card-label">Today</div></div>
+      <div class="stat-card"><div class="stat-card-num" id="statWeek">—</div><div class="stat-card-label">This Week</div></div>
+      <div class="stat-card"><div class="stat-card-num" id="statNew">—</div><div class="stat-card-label">New (unread)</div></div>
+    </div>
+
+    <div class="dashboard-layout">
+      <!-- FOLDER SIDEBAR -->
+      <div class="folder-sidebar">
+        <div class="folder-sidebar-header">
+          <span class="folder-sidebar-title">Folders</span>
+          <button class="folder-add-btn" onclick="toggleNewFolderForm()" title="New folder">+</button>
+        </div>
+        <div id="folderList"></div>
+        <div class="new-folder-form" id="newFolderForm">
+          <input type="text" class="new-folder-input" id="newFolderInput" placeholder="Folder name…" maxlength="30" onkeydown="if(event.key==='Enter')saveNewFolder();if(event.key==='Escape')toggleNewFolderForm()">
+          <button class="new-folder-save" onclick="saveNewFolder()">Add</button>
+        </div>
+      </div>
+
+      <!-- LEADS MAIN -->
+      <div class="leads-main">
+        <div class="filters">
+          <input type="text" class="filter-input" id="searchInput" placeholder="Search name, phone, issue..." oninput="renderLeads()" style="min-width:220px">
+          <span class="filter-count" id="filterCount"></span>
+        </div>
+
+        <div class="leads-wrap">
+          <div class="leads-header">
+            <span>Date</span>
+            <span>Name</span>
+            <span>Phone</span>
+            <span>Issue</span>
+            <span>Source</span>
+            <span></span>
+          </div>
+          <div id="leadsList"><div class="loading">Loading leads...</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOVE TO FOLDER MODAL -->
+<div class="modal-overlay" id="moveModalOverlay" onclick="if(event.target===this)closeMoveModal()">
+  <div class="move-modal">
+    <div class="move-modal-header">
+      <div class="move-modal-title">Move to Folder</div>
+      <div class="move-modal-sub" id="moveModalSub"></div>
+    </div>
+    <div class="move-folder-list" id="moveFolderList"></div>
+    <div class="move-modal-footer">
+      <button class="cancel-btn" onclick="closeMoveModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSCRIPT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-meta" id="modalMeta"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ──
+const DASHBOARD_PASSWORD = "esolicitors2026";
+const SHEET_URL = ""; // Leave blank — reads from Google Sheet via /api/get-leads
+
+let allLeads = [];
+let readLeads = JSON.parse(localStorage.getItem('readLeads') || '[]');
+let deletedLeads = JSON.parse(localStorage.getItem('deletedLeads') || '[]');
+let leadFolders = JSON.parse(localStorage.getItem('leadFolders') || '{}'); // { leadId: folderName }
+let folders = JSON.parse(localStorage.getItem('folders') || '["Contacted","Closed","Archive"]');
+let activeFolder = 'all'; // 'all' or folder name
+let moveTargetId = null;
+
+// ── AUTH ──
+function login() {
+  const pw = document.getElementById('passwordInput').value;
+  if (pw === DASHBOARD_PASSWORD) {
+    sessionStorage.setItem('dash_auth', '1');
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    loadLeads();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('dash_auth');
+  location.reload();
+}
+
+if (sessionStorage.getItem('dash_auth') === '1') {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+}
+
+// ── LOAD LEADS ──
+async function loadLeads() {
+  try {
+    const res = await fetch('/api/get-leads');
+    const data = await res.json();
+    allLeads = (data.leads || []).filter(l => !deletedLeads.includes(l.id));
+    updateStats();
+    renderFolders();
+    renderLeads();
+    document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString('en-IE', {hour:'2-digit',minute:'2-digit'});
+  } catch(e) {
+    document.getElementById('leadsList').innerHTML = '<div class="loading">Could not load leads. ' + e.message + '</div>';
+  }
+}
+
+// ── STATS ──
+function updateStats() {
+  const now = new Date();
+  const todayStr = now.toDateString();
+  const weekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+  const total = allLeads.length;
+  const today = allLeads.filter(l => new Date(l.date).toDateString() === todayStr).length;
+  const week = allLeads.filter(l => new Date(l.date) > weekAgo).length;
+  const newLeads = allLeads.filter(l => !readLeads.includes(l.id)).length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statToday').textContent = today;
+  document.getElementById('statWeek').textContent = week;
+  document.getElementById('statNew').textContent = newLeads;
+}
+
+// ── FOLDERS ──
+function renderFolders() {
+  const allCount = allLeads.length;
+  const unfoldered = allLeads.filter(l => !leadFolders[l.id]).length;
+
+  const systemFolders = [
+    { name: 'all', icon: '📋', label: 'All Leads', count: allCount },
+    { name: '_new', icon: '✨', label: 'Unread', count: allLeads.filter(l => !readLeads.includes(l.id)).length },
+    { name: '_unfiled', icon: '📥', label: 'Unfiled', count: unfoldered },
+  ];
+
+  const userFolders = folders.map(f => ({
+    name: f, icon: '📁', label: f,
+    count: allLeads.filter(l => leadFolders[l.id] === f).length
+  }));
+
+  const allFolders = [...systemFolders, ...userFolders];
+
+  document.getElementById('folderList').innerHTML = allFolders.map(f => `
+    <div class="folder-item ${activeFolder === f.name ? 'active' : ''}" onclick="setFolder('${escHtml(f.name)}')">
+      <div class="folder-item-left">
+        <span class="folder-icon">${f.icon}</span>
+        <span class="folder-name">${escHtml(f.label)}</span>
+      </div>
+      <span class="folder-count">${f.count}</span>
+      ${!['all','_new','_unfiled'].includes(f.name) ? `<button class="folder-delete-btn" onclick="deleteFolder(event,'${escHtml(f.name)}')" title="Delete folder">✕</button>` : ''}
+    </div>
+  `).join('');
+}
+
+function setFolder(name) {
+  activeFolder = name;
+  renderFolders();
+  renderLeads();
+}
+
+function toggleNewFolderForm() {
+  const form = document.getElementById('newFolderForm');
+  form.classList.toggle('open');
+  if (form.classList.contains('open')) document.getElementById('newFolderInput').focus();
+}
+
+function saveNewFolder() {
+  const input = document.getElementById('newFolderInput');
+  const name = input.value.trim();
+  if (!name || folders.includes(name)) { input.focus(); return; }
+  folders.push(name);
+  localStorage.setItem('folders', JSON.stringify(folders));
+  input.value = '';
+  document.getElementById('newFolderForm').classList.remove('open');
+  renderFolders();
+}
+
+function deleteFolder(e, name) {
+  e.stopPropagation();
+  if (!confirm(`Delete folder "${name}"? Leads inside will become Unfiled.`)) return;
+  folders = folders.filter(f => f !== name);
+  // unfile leads in this folder
+  Object.keys(leadFolders).forEach(id => { if (leadFolders[id] === name) delete leadFolders[id]; });
+  localStorage.setItem('folders', JSON.stringify(folders));
+  localStorage.setItem('leadFolders', JSON.stringify(leadFolders));
+  if (activeFolder === name) activeFolder = 'all';
+  renderFolders();
+  renderLeads();
+}
+
+// ── RENDER LEADS ──
+function renderLeads() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+
+  let filtered = allLeads.filter(l => {
+    if (activeFolder === '_new') return !readLeads.includes(l.id);
+    if (activeFolder === '_unfiled') return !leadFolders[l.id];
+    if (activeFolder !== 'all') return leadFolders[l.id] === activeFolder;
+    return true;
+  }).filter(l =>
+    !search ||
+    (l.name||'').toLowerCase().includes(search) ||
+    (l.phone||'').toLowerCase().includes(search) ||
+    (l.issue||'').toLowerCase().includes(search) ||
+    (l.county||'').toLowerCase().includes(search)
+  );
+
+  document.getElementById('filterCount').textContent = filtered.length + ' lead' + (filtered.length !== 1 ? 's' : '');
+
+  if (filtered.length === 0) {
+    document.getElementById('leadsList').innerHTML = `
+      <div class="empty-state">
+        <h3>No leads here</h3>
+        <p>${activeFolder === 'all' ? 'Leads will appear here when Sarah captures them' : 'No leads in this folder yet'}</p>
+      </div>`;
+    return;
+  }
+
+  const sorted = [...filtered].sort((a,b) => new Date(b.date) - new Date(a.date));
+
+  document.getElementById('leadsList').innerHTML = sorted.map(lead => {
+    const isNew = !readLeads.includes(lead.id);
+    const date = new Date(lead.date).toLocaleString('en-IE', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+    const folder = leadFolders[lead.id];
+    return `
+      <div class="lead-row ${isNew ? 'new' : ''}" onclick="openLead('${lead.id}')">
+        <div class="lead-date">${date}</div>
+        <div class="lead-name">${escHtml(lead.name || 'Unknown')}${isNew ? '<span class="new-badge">NEW</span>' : ''}${folder ? `<br><small style="font-size:.68rem;color:var(--soft);font-weight:400">📁 ${escHtml(folder)}</small>` : ''}</div>
+        <div class="lead-phone">${escHtml(lead.phone || '—')}</div>
+        <div class="lead-issue">${escHtml(lead.issue || '—')}</div>
+        <div class="lead-source">${escHtml((lead.source||'').replace('/','') || 'home')}</div>
+        <div class="lead-actions" onclick="event.stopPropagation()">
+          <button class="action-btn" onclick="openMoveModal('${lead.id}')" title="Move to folder">📁</button>
+          <button class="action-btn delete-btn" onclick="deleteLead('${lead.id}')" title="Delete">🗑</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ── DELETE ──
+function deleteLead(id) {
+  const lead = allLeads.find(l => l.id === id);
+  const name = lead ? (lead.name || 'this lead') : 'this lead';
+  if (!confirm(`Delete ${name}? This can't be undone.`)) return;
+  deletedLeads.push(id);
+  localStorage.setItem('deletedLeads', JSON.stringify(deletedLeads));
+  allLeads = allLeads.filter(l => l.id !== id);
+  updateStats();
+  renderFolders();
+  renderLeads();
+}
+
+// ── MOVE TO FOLDER ──
+function openMoveModal(id) {
+  moveTargetId = id;
+  const lead = allLeads.find(l => l.id === id);
+  document.getElementById('moveModalSub').textContent = lead ? (lead.name || 'Unknown') : '';
+  const currentFolder = leadFolders[id];
+
+  const allFolderOptions = ['_unfiled', ...folders];
+  document.getElementById('moveFolderList').innerHTML = allFolderOptions.map(f => {
+    const isCurrent = f === '_unfiled' ? !currentFolder : currentFolder === f;
+    const icon = f === '_unfiled' ? '📥' : '📁';
+    const label = f === '_unfiled' ? 'Unfiled' : f;
+    return `<div class="move-folder-item ${isCurrent ? 'current' : ''}" onclick="moveLeadTo('${escHtml(f)}')">
+      <span>${icon}</span> ${escHtml(label)} ${isCurrent ? '(current)' : ''}
+    </div>`;
+  }).join('');
+
+  document.getElementById('moveModalOverlay').classList.add('open');
+}
+
+function moveLeadTo(folder) {
+  if (!moveTargetId) return;
+  if (folder === '_unfiled') {
+    delete leadFolders[moveTargetId];
+  } else {
+    leadFolders[moveTargetId] = folder;
+  }
+  localStorage.setItem('leadFolders', JSON.stringify(leadFolders));
+  closeMoveModal();
+  renderFolders();
+  renderLeads();
+}
+
+function closeMoveModal() {
+  document.getElementById('moveModalOverlay').classList.remove('open');
+  moveTargetId = null;
+}
+
+// ── OPEN LEAD ──
+function openLead(id) {
+  const lead = allLeads.find(l => l.id === id);
+  if (!lead) return;
+
+  if (!readLeads.includes(id)) {
+    readLeads.push(id);
+    localStorage.setItem('readLeads', JSON.stringify(readLeads));
+    updateStats();
+    renderFolders();
+    renderLeads();
+  }
+
+  const date = new Date(lead.date).toLocaleString('en-IE', {weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  document.getElementById('modalName').textContent = lead.name || 'Unknown';
+  document.getElementById('modalMeta').textContent = date + ' · ' + (lead.source || 'esolicitors.ie');
+
+  let body = '';
+
+  // Folder info + move button
+  const folder = leadFolders[id];
+  body += '<div class="modal-section-label">Folder</div>';
+  body += `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span class="folder-badge">${folder ? '📁 ' + escHtml(folder) : '📥 Unfiled'}</span>
+    <button class="action-btn" onclick="closeModal();openMoveModal('${id}')" style="font-size:.8rem">Move to folder…</button>
+  </div>`;
+
+  body += '<div class="modal-section-label">Contact Details</div>';
+  body += `<div class="modal-detail">
+    <strong>Phone:</strong> <a href="tel:${lead.phone}" style="color:var(--navy)">${escHtml(lead.phone||'—')}</a><br>
+    <strong>County:</strong> ${escHtml(lead.county||'—')}<br>
+    <strong>Page:</strong> ${escHtml(lead.source||'/')}
+  </div>`;
+
+  if (lead.issue) {
+    body += '<div class="modal-section-label">What They Said</div>';
+    body += `<div class="modal-detail">${escHtml(lead.issue)}</div>`;
+  }
+
+  if (lead.transcript) {
+    body += '<div class="modal-section-label">Full Conversation</div>';
+    const lines = lead.transcript.split('\n').filter(l => l.trim());
+    body += lines.map(line => {
+      const isVisitor = line.startsWith('Visitor:');
+      const cls = isVisitor ? 'visitor' : 'sarah';
+      const speaker = isVisitor ? 'Visitor' : 'Sarah';
+      const text = line.replace(/^(Visitor:|Sarah:)\s*/, '');
+      return `<div class="transcript-line ${cls}">
+        <div class="transcript-speaker">${speaker}</div>
+        ${escHtml(text)}
+      </div>`;
+    }).join('');
+  }
+
+  // Delete button in modal footer
+  body += `<div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border)">
+    <button class="action-btn delete-btn" onclick="closeModal();deleteLead('${id}')" style="font-size:.82rem">🗑 Delete this lead</button>
+  </div>`;
+
+  document.getElementById('modalBody').innerHTML = body;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Auto-refresh every 2 minutes if logged in
+if (sessionStorage.getItem('dash_auth') === '1') {
+  setInterval(loadLeads, 120000);
+  loadLeads();
+}
+</script>
+</body>
+</html>
